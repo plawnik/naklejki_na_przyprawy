@@ -40,9 +40,10 @@ trap 'rm -f "$temporary_file"' EXIT
   -gravity north -geometry +0+105 -composite \
   \( -size 945x945 xc:black -fill white -draw 'circle 472.5,472.5 472.5,16' \) \
   -alpha off -compose CopyOpacity -composite \
+  -dither FloydSteinberg -colors 256 \
   -units PixelsPerInch -density 300 \
   -define png:compression-level=9 \
-  "$temporary_file"
+  "PNG8:$temporary_file"
 
 mv -f "$temporary_file" "$output_file"
 trap - EXIT
