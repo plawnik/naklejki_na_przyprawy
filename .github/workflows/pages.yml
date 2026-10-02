@@ -24,6 +24,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Prepare image catalogue
+        run: |
+          python -m pip install -r scripts/requirements-catalog.txt
+          python scripts/generate-catalog.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:

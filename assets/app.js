@@ -29,7 +29,7 @@ const state = {
 };
 const cropState = { image:null, objectUrl:null, zoom:1, offsetX:0, offsetY:0, dragStart:null };
 const els = Object.fromEntries([
-  'catalog','pages','sizePreset','customSize','customSizeField','layoutInfoField','layoutInfo',
+  'catalog','catalogSummary','pages','sizePreset','customSize','customSizeField','layoutInfoField','layoutInfo',
   'searchInput','categoryFilter','addPageBtn','exportBtn','workspaceStats','targetNote',
   'orientation','previewZoom','previewZoomValue','fitPreviewBtn','defaultStyle','defaultStyleSample',
   'editModal','closeModalBtn','modalPreview','modalTitle','modalPosition','replaceBtn','removeBtn',
@@ -246,11 +246,12 @@ function saveEditor() {
   els.pages.querySelector(`[data-page="${pageIndex}"][data-slot="${slotIndex}"]`)?.focus();
 }
 function initializeCategories() {
-  const categories=['Wszystkie',...new Set(LABELS.map(label=>label.custom?'Własne':'Sole'))];
+  const categories=['Wszystkie',...new Set(LABELS.map(label=>label.category||'Pozostałe'))];
   els.categoryFilter.innerHTML=categories.map(category=>`<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join('');
-  // The displayed short group name keeps the filter legible.
-  els.categoryFilter.querySelector('option[value="Sole"]').value='Sole i wzmacniacze smaku';
+  if(!categories.includes(state.category)) state.category='Wszystkie';
   els.categoryFilter.value=state.category;
+  const count=categories.length-1;
+  els.catalogSummary.textContent=`${LABELS.length} wzorów · ${count} ${count===1?'kategoria':count>=2&&count<=4?'kategorie':'kategorii'}`;
 }
 function deletePage(pageIndex) {
   if(state.pages[pageIndex].slots.some(Boolean)&&!confirm(`Usunąć stronę ${pageIndex+1} wraz z naklejkami?`)) return;
