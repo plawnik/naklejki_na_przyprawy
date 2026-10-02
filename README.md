@@ -20,6 +20,8 @@ Strona do projektowania naklejek na słoiki i pojemniki kuchenne. Wybierz ilustr
 
 Grafiki są zapisane jako oryginalne PNG **1254 × 1254 px**, bez napisów, pod nazwami przypraw. Tekst jest nakładany przez przeglądarkę. Oryginały nie są skalowane, konwertowane ani przycinane; pełne kwadratowe obrazy trafiają również do PDF. „Sól w płatkach” i „Sól w piramidkach” mają osobne ilustracje.
 
+Lista wyboru korzysta z lekkich miniaturek **WebP, do 320 × 320 px**, ładowanych w miarę przewijania. Miniatury są osobnymi plikami; podgląd na arkuszu, edytor i PDF korzystają z pełnych oryginałów. Publikacja strony automatycznie tworzy miniatury także dla nowo dodanych grafik.
+
 ## Jak przygotować wydruk
 
 1. Ustaw średnicę naklejki, orientację A4 i domyślny styl.
@@ -33,8 +35,9 @@ Projekt arkuszy i własne grafiki pozostają w otwartej karcie. Odświeżenie st
 ## Pliki projektu
 
 - `assets/labels/` — 22 foldery kategorii zgodnych z pełną listą etykiet; oryginalne ilustracje bez napisów, nazwane według przypraw. Puste kategorie zawierają `.gitkeep`.
+- `assets/thumbs/` — lekkie miniatury WebP do listy wyboru, w takim samym układzie kategorii.
 - `data/labels.js` — katalog wszystkich dostępnych grafik, automatycznie tworzony z folderów kategorii podczas publikacji.
-- `scripts/generate-catalog.py` — skanowanie folderów i przyporządkowanie nazw oraz kategorii do grafik.
+- `scripts/generate-catalog.py` — skanowanie folderów, przyporządkowanie nazw oraz kategorii do grafik i automatyczne tworzenie miniaturek.
 - `data/assets-manifest.json` — przyporządkowanie oryginałów do przypraw oraz sumy SHA-256.
 - `assets/fonts/` — dołączone kroje pisma na licencji AGPL-3.0 z wyjątkiem dla PDF i PostScript; [licencja i źródła czcionek](assets/fonts/README.md). Strona nie pobiera czcionek z zewnętrznych usług.
 - [STYLE_GUIDE.md](STYLE_GUIDE.md) — opis grafiki i pięciu stylów.
@@ -43,4 +46,4 @@ Publikację strony po zmianach na gałęzi `main` obsługuje workflow GitHub Pag
 
 ## Dodawanie kolejnych grafik
 
-Wgraj oryginalny plik PNG, JPG, WebP lub GIF do odpowiedniej kategorii w `assets/labels/`, np. `assets/labels/02-pieprze-papryki-i-ostre-chili/pieprz-czarny.png`. Nazwij plik według produktu. Przy publikacji GitHub Pages skanuje wszystkie foldery, rozpoznaje nazwy z pełnej listy i aktualizuje katalog oraz filtr kategorii. Nie trzeba ręcznie zmieniać `data/labels.js` ani kodu strony. Oryginalne pliki zachowują swój format i rozdzielczość.
+Wgraj oryginalny plik PNG, JPG, WebP lub GIF do odpowiedniej kategorii w `assets/labels/`, np. `assets/labels/02-pieprze-papryki-i-ostre-chili/pieprz-czarny.png`. Nazwij plik według produktu. Przy publikacji GitHub Pages skanuje wszystkie foldery, rozpoznaje nazwy z pełnej listy, tworzy miniatury i aktualizuje katalog oraz filtr kategorii. Nie trzeba ręcznie zmieniać `data/labels.js` ani kodu strony. Oryginalne pliki zachowują swój format i rozdzielczość.

@@ -5,6 +5,9 @@ window.LABELS = [
     "id": "sol",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -14,6 +17,9 @@ window.LABELS = [
     "id": "sol-drobna",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-drobna.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-drobna.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -23,6 +29,9 @@ window.LABELS = [
     "id": "sol-gruboziarnista",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-gruboziarnista.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-gruboziarnista.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -32,6 +41,9 @@ window.LABELS = [
     "id": "sol-jodowana",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-jodowana.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-jodowana.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -41,6 +53,9 @@ window.LABELS = [
     "id": "sol-niejodowana",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-niejodowana.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-niejodowana.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -50,6 +65,9 @@ window.LABELS = [
     "id": "sol-kamienna",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-kamienna.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-kamienna.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -59,6 +77,9 @@ window.LABELS = [
     "id": "sol-morska",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-morska.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-morska.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -68,6 +89,9 @@ window.LABELS = [
     "id": "sol-w-platkach",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-w-platkach.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-w-platkach.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -77,6 +101,9 @@ window.LABELS = [
     "id": "sol-koszerna",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-koszerna.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-koszerna.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -86,6 +113,9 @@ window.LABELS = [
     "id": "sol-himalajska-rozowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-himalajska-rozowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-himalajska-rozowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -95,6 +125,9 @@ window.LABELS = [
     "id": "sol-himalajska-czarna",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-himalajska-czarna.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-himalajska-czarna.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -104,6 +137,9 @@ window.LABELS = [
     "id": "sol-hawajska-czarna",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-hawajska-czarna.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-hawajska-czarna.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -113,6 +149,9 @@ window.LABELS = [
     "id": "sol-hawajska-czerwona",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-hawajska-czerwona.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-hawajska-czerwona.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -122,6 +161,9 @@ window.LABELS = [
     "id": "sol-perska-niebieska",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-perska-niebieska.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-perska-niebieska.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -131,6 +173,9 @@ window.LABELS = [
     "id": "fleur-de-sel",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/fleur-de-sel.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/fleur-de-sel.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -140,6 +185,9 @@ window.LABELS = [
     "id": "sol-w-piramidkach",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-w-piramidkach.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-w-piramidkach.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -149,6 +197,9 @@ window.LABELS = [
     "id": "sol-bambusowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-bambusowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-bambusowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -158,6 +209,9 @@ window.LABELS = [
     "id": "kala-namak",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/kala-namak.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/kala-namak.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -167,6 +221,9 @@ window.LABELS = [
     "id": "sol-peklowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-peklowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-peklowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -176,6 +233,9 @@ window.LABELS = [
     "id": "sol-nitrytowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-nitrytowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-nitrytowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -185,6 +245,9 @@ window.LABELS = [
     "id": "sol-do-kiszenia",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-do-kiszenia.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-do-kiszenia.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -194,6 +257,9 @@ window.LABELS = [
     "id": "sol-wedzona",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-wedzona.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-wedzona.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -203,6 +269,9 @@ window.LABELS = [
     "id": "sol-truflowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-truflowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-truflowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -212,6 +281,9 @@ window.LABELS = [
     "id": "sol-cytrynowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-cytrynowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-cytrynowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -221,6 +293,9 @@ window.LABELS = [
     "id": "sol-limonkowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-limonkowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-limonkowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -230,6 +305,9 @@ window.LABELS = [
     "id": "sol-czosnkowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-czosnkowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-czosnkowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -239,6 +317,9 @@ window.LABELS = [
     "id": "sol-cebulowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-cebulowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-cebulowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -248,6 +329,9 @@ window.LABELS = [
     "id": "sol-selerowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-selerowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-selerowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -257,6 +341,9 @@ window.LABELS = [
     "id": "sol-paprykowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-paprykowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-paprykowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -266,6 +353,9 @@ window.LABELS = [
     "id": "sol-chili",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-chili.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-chili.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -275,6 +365,9 @@ window.LABELS = [
     "id": "sol-ziolowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-ziolowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-ziolowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -284,6 +377,9 @@ window.LABELS = [
     "id": "sol-sezamowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-sezamowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-sezamowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -293,6 +389,9 @@ window.LABELS = [
     "id": "sol-potasowa",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-potasowa.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/sol-potasowa.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -302,6 +401,9 @@ window.LABELS = [
     "id": "chlorek-potasu",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/chlorek-potasu.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/chlorek-potasu.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -311,6 +413,9 @@ window.LABELS = [
     "id": "glutaminian-sodu",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/glutaminian-sodu.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/glutaminian-sodu.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -320,6 +425,9 @@ window.LABELS = [
     "id": "gomasio",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/gomasio.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/gomasio.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -329,6 +437,9 @@ window.LABELS = [
     "id": "drozdze-nieaktywne",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/drozdze-nieaktywne.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/drozdze-nieaktywne.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true
@@ -338,6 +449,9 @@ window.LABELS = [
     "id": "drozdze-nieaktywne-b12",
     "category": "Sole, mieszanki solne i wzmacniacze smaku",
     "src": "assets/labels/01-sole-mieszanki-solne-i-wzmacniacze-smaku/drozdze-nieaktywne-b12.png",
+    "thumb": "assets/thumbs/01-sole-mieszanki-solne-i-wzmacniacze-smaku/drozdze-nieaktywne-b12.webp",
+    "thumbWidth": 320,
+    "thumbHeight": 320,
     "width": 1254,
     "height": 1254,
     "textOverlay": true

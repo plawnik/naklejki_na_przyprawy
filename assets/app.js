@@ -137,10 +137,13 @@ function fitText(sticker) {
   const result=best || {fontSize:0,lines:[]};
   textLayoutCache.set(key,result);return result;
 }
-function stickerMarkup(sticker,lazy=false) {
+function stickerMarkup(sticker,thumbnail=false) {
   const label=labelMap.get(sticker.labelId),font=fontMap.get(sticker.fontId)||FONTS[0];
   const layout=fitText(sticker);
-  return `<img src="${escapeHtml(label.src)}" alt="" ${lazy?'loading="lazy"':''} decoding="async" width="${label.width}" height="${label.height||label.width}"><svg viewBox="0 0 1000 1000" aria-hidden="true"><g fill="${sticker.color}" font-family="${font.family}" font-weight="${font.weight}" font-size="${layout.fontSize}" text-anchor="middle">${layout.lines.map(line=>`<text x="${line.x}" y="${line.y}">${escapeHtml(line.text)}</text>`).join('')}</g></svg>`;
+  const useThumb=thumbnail&&Boolean(label.thumb);
+  const source=useThumb?label.thumb:label.src;
+  const width=useThumb?label.thumbWidth:label.width,height=useThumb?label.thumbHeight:(label.height||label.width);
+  return `<img src="${escapeHtml(source)}" alt="" ${thumbnail?'loading="lazy"':''} decoding="async" width="${width}" height="${height}"><svg viewBox="0 0 1000 1000" aria-hidden="true"><g fill="${sticker.color}" font-family="${font.family}" font-weight="${font.weight}" font-size="${layout.fontSize}" text-anchor="middle">${layout.lines.map(line=>`<text x="${line.x}" y="${line.y}">${escapeHtml(line.text)}</text>`).join('')}</g></svg>`;
 }
 function calculateLayout(size=state.size) {
   const columns=Math.max(1,Math.floor((A4.width-2*A4.margin+A4.gap)/(size+A4.gap)));
@@ -373,10 +376,10 @@ function drawSticker(context,image,sticker,x,y,width,height) {
       image.src = cropState.objectUrl;
     }
 
-    function croppedImageDataUrl() {
+    function croppedImageDataUrl(size=945,type='image/png') {
       const output = document.createElement('canvas');
-      output.width = 945;
-      output.height = 945;
+      output.width = size;
+      output.height = size;
       const context = output.getContext('2d');
       const { diameter, baseScale } = cropGeometry();
       const previewToOutput = output.width / diameter;
@@ -395,7 +398,7 @@ function drawSticker(context,image,sticker,x,y,width,height) {
       context.imageSmoothingQuality = 'high';
       context.drawImage(cropState.image, x, y, width, height);
       context.restore();
-      return output.toDataURL('image/png');
+      return output.toDataURL(type,.8);
     }
 
 
@@ -494,7 +497,7 @@ async function exportPdf() {
 }
 function confirmCustomLabel() {
   if(!cropState.image)return;
-  const label={id:`custom-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,name:els.customLabelName.value.trim()||'Własna etykieta',category:'Własne',src:croppedImageDataUrl(),width:945,height:945,textOverlay:els.customTextOverlay.checked,custom:true};
+  const label={id:`custom-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,name:els.customLabelName.value.trim()||'Własna etykieta',category:'Własne',src:croppedImageDataUrl(),thumb:croppedImageDataUrl(320,'image/webp'),thumbWidth:320,thumbHeight:320,width:945,height:945,textOverlay:els.customTextOverlay.checked,custom:true};
   LABELS.unshift(label);labelMap.set(label.id,label);state.category='Wszystkie';closeImportModal();initializeCategories();addLabel(label.id);
 }
 function cropPointerPosition(event) {
