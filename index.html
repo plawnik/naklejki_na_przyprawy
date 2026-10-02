@@ -15,7 +15,7 @@
   <main class="app-shell">
     <aside class="library-panel" aria-label="Biblioteka etykiet">
       <div class="library-header">
-        <div class="language-tools"><select id="languageSelect" aria-label="Język / Language"><option value="pl">Polski</option><option value="en">English</option></select><div class="ai-info"><button class="icon-btn" type="button" aria-label="Informacja o stronie" aria-describedby="aiTooltip">ⓘ</button><div class="ai-tooltip" id="aiTooltip" role="tooltip"><span>Strona została wygenerowana przy użyciu AI.</span> <a href="https://github.com/plawnik/naklejki_na_przyprawy" target="_blank" rel="noopener noreferrer">GitHub</a></div></div></div>
+        <div class="language-tools"><select id="languageSelect" aria-label="Język / Language"><option value="pl">Polski</option><option value="en">English</option></select><div class="ai-info"><button class="icon-btn" type="button" aria-label="Informacja o stronie" aria-describedby="aiTooltip">ⓘ</button><div class="ai-tooltip" id="aiTooltip" role="tooltip"><span>Cała strona została przygotowana przy użyciu sztucznej inteligencji (AI): kod, układ i wygląd interfejsu, funkcje edytora oraz grafiki etykiet i treści. Projekt rozwija się na podstawie pomysłów i uwag użytkownika. Kod źródłowy jest dostępny na GitHub.</span> <a href="https://github.com/plawnik/naklejki_na_przyprawy" target="_blank" rel="noopener noreferrer">GitHub</a></div></div><iframe class="visitor-counter" title="Licznik odwiedzin" width="170" height="42" srcdoc="&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;body{margin:0;text-align:center;font:10px sans-serif}img{display:block;margin:0 auto;border:0}a{color:#782d20}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;a href=&quot;http://www.counterliczniki.com&quot;&gt;wordpress licznik odwiedzin&lt;/a&gt;&lt;a href=&quot;https://www.freevisitorcounters.com/en/home/stats/id/1656832&quot; target=&quot;_blank&quot;&gt;&lt;img id=&quot;counterimg&quot; src=&quot;https://www.freevisitorcounters.com/en/counter/render/1656832/t/5&quot; width=&quot;108&quot; height=&quot;22&quot; alt=&quot;Visitor counter&quot;&gt;&lt;/a&gt;&lt;script src=&quot;https://www.freevisitorcounters.com/auth.php?id=4de53bf7752506fcfbe7082fa166fcf43b7a8285&quot;&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></div>
         <div class="brand"><span class="brand-mark" aria-hidden="true">❧</span><div><h1>Etykiety na przyprawy</h1><p id="catalogSummary">Wzory z dostępnych kategorii</p></div></div>
         <div class="settings-grid">
           <div class="field"><label for="sizePreset">Średnica naklejki</label><select id="sizePreset"><option value="22">22 mm</option><option value="30" selected>30 mm</option><option value="40">40 mm</option><option value="50">50 mm</option><option value="60">60 mm</option><option value="80">80 mm</option><option value="custom">Własna</option></select></div>
@@ -26,14 +26,9 @@
         <div class="target-note" id="targetNote" hidden></div>
         <button class="btn import-label-btn" id="importImageBtn" type="button">Dodaj własną grafikę</button><input id="imageFileInput" type="file" accept="image/*" hidden>
       </div>
-      <div class="catalog-tools"><input id="searchInput" type="search" placeholder="Szukaj przyprawy…" aria-label="Szukaj przyprawy"><select id="categoryFilter" aria-label="Filtruj grupę etykiet"></select></div>
+      <div class="catalog-tools"><select id="categoryFilter" aria-label="Filtruj grupę etykiet"></select><input id="searchInput" type="search" placeholder="Szukaj przyprawy…" aria-label="Szukaj przyprawy"></div>
       <div class="catalog" id="catalog"></div>
-      <footer class="library-footer visitor-counter">
-        <a href="https://www.freevisitorcounters.com/en/home/stats/id/1656832" target="_blank" rel="noopener noreferrer" aria-label="Statystyki odwiedzin">
-          <img src="https://www.freevisitorcounters.com/en/counter/render/1656832/t/5" alt="Licznik odwiedzin" style="display:block;max-width:100%;height:auto;margin:0 auto;border:0">
-        </a>
-        <script type="text/javascript" src="https://www.freevisitorcounters.com/auth.php?id=4de53bf7752506fcfbe7082fa166fcf43b7a8285"></script>
-      </footer>
+      
     </aside>
     <section class="workspace" aria-label="Podgląd stron A4">
       <header class="workspace-toolbar"><div class="workspace-title"><h2>Twój arkusz A4</h2><p id="workspaceStats">1 strona · 0 etykiet</p></div><div class="toolbar-actions"><button class="btn" id="addPageBtn" type="button">+ Dodaj stronę</button><button class="btn primary" id="exportBtn" type="button">↓ Pobierz PDF</button></div></header>

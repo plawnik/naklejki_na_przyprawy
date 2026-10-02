@@ -69,3 +69,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .ai-info:hover .ai-tooltip,.ai-info:focus-within .ai-tooltip { display:block; }
 .catalog-empty { grid-column:1 / -1; }
 .visitor-counter { text-align:center; }
+
+.catalog-tools { grid-template-columns:minmax(0,1fr); }
+.catalog-tools select { display:block; width:100%; }
+.language-tools { flex-wrap:wrap; }
+.language-tools .visitor-counter { display:block; border:0; flex:0 0 170px; margin-left:auto; }
+.ai-tooltip { width:min(340px,calc(100vw - 155px)); }
