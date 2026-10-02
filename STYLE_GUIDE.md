@@ -1,38 +1,37 @@
-# Wzorzec etykiet
+# Grafiki i style etykiet
 
-Ten dokument utrwala styl użyty w pierwszej testowej kategorii.
+## Oryginalne ilustracje
 
-## Format
+- Obecna grupa: 38 etykiet soli, mieszanek solnych i wzmacniaczy smaku.
+- Oryginalny format: PNG, RGB, **1254 × 1254 px**.
+- Pliki są kopiowane bez zmiany zawartości, rozdzielczości, kompresji lub metadanych. Zmieniona jest wyłącznie nazwa pliku.
+- Nazwa odpowiada przyprawie, np. `sol-cytrynowa.png` i `sol-w-piramidkach.png`.
+- Ciepłe kremowe tło, bordowa i ochrowa obwódka, ilustracja w dolnej części i puste miejsce na tekst u góry.
+- Oryginały zachowują kwadratowe tło i pełną obwódkę. Podgląd oraz eksport nie stosują do nich maski kołowej.
+- „Sól w płatkach” używa ilustracji płatków, a „Sól w piramidkach” ilustracji kryształków w kształcie piramidek.
 
-- końcowy plik: PNG z przezroczystymi narożnikami;
-- wymiary: **945×945 px**;
-- gęstość: **300 dpi** (`118,11 px/cm`);
-- rozmiar docelowy: koło o średnicy **80 mm**;
-- nazwa pliku: trzycyfrowy numer i prosty slug, np. `024-sol-cytrynowa.png`.
-
-Obliczenie: `80 mm ÷ 25,4 × 300 dpi = 944,88 px`, po zaokrągleniu 945 px.
-
-## Wygląd
-
-- ciepłe, kremowe tło papieru;
-- cienki zewnętrzny pierścień bordowy i wewnętrzny pierścień ochrowy;
-- frontowy, symetryczny układ;
-- górne ok. 40% pozostawione czyste pod nazwę;
-- na dole ręcznie malowana, botaniczna ilustracja składnika: miseczka lub naczynie, łyżeczka, kilka rozsypanych ziaren i oszczędne zielone gałązki;
-- bez cieni poza etykietą, logotypów, znaków wodnych i generowanego tekstu.
+Przyporządkowanie oryginalnych nazw oraz kontrolne sumy SHA-256 zawiera `data/assets-manifest.json`.
 
 ## Typografia
 
-- napis jest dodawany dopiero po wygenerowaniu ilustracji;
-- krój: `Nimbus Roman Bold` lub podobny klasyczny, kontrastowy krój szeryfowy;
-- wersaliki, kolor `#651b18`, wyrównanie centralne;
-- 1–3 wiersze, zwykle 54–112 px zależnie od długości nazwy;
-- blok tekstu: ok. 790×245 px, pozycja od 105 px od górnej krawędzi.
+Napisy są niezależną warstwą, edytowaną dla każdej naklejki. Edytor dobiera rozmiar pisma i podział tekstu na wiersze do wolnego obszaru nad ilustracją, uwzględniając krzywiznę wewnętrznej obwódki. Ręczne podziały wierszy są respektowane. Ten sam układ tekstu jest stosowany w podglądzie i PDF.
 
-Programowe dodawanie tekstu zapobiega literówkom, pseudo-literom oraz różnicom w polskich znakach.
+| Styl | Krój | Kolor | Domyślne litery |
+| --- | --- | --- | --- |
+| 1. Klasyczny bordowy | Nimbus Roman Bold | `#651b18` | Wersaliki |
+| 2. Botaniczny zielony | P052 Bold (Palatino) | `#35543c` | Jak wpisano |
+| 3. Vintage brązowy | URW Bookman Demi | `#6b4025` | Wersaliki |
+| 4. Prosty grafitowy | Nimbus Sans Bold | `#292e31` | Jak wpisano |
+| 5. Elegancki winny | Nimbus Roman Italic | `#782b44` | Jak wpisano |
 
-## Szablon promptu dla ilustracji
+Każdy styl można zmodyfikować: wpisać własny tekst, wybrać inny krój, dowolny kolor i sposób zapisu liter. Edytor pozwala zapamiętać takie ustawienia jako domyślne dla następnych etykiet. Nie zmienia to stylu już dodanych naklejek.
 
-> Kwadratowa etykieta spiżarniana w stylu vintage: ciepły kremowy papier w kole, cienki bordowy pierścień zewnętrzny i ochrowy pierścień wewnętrzny, szczegółowa ręcznie malowana europejska ilustracja kulinarna. Górne 40% czyste i puste pod późniejszą typografię. W dolnej połowie: [SKŁADNIK I REKWIZYTY], oszczędne symetryczne zielone gałązki. Widok na wprost, wszystkie elementy wewnątrz obwódki. Bez tekstu, liter, cyfr, symboli, pseudo-pisma, logo i znaku wodnego.
+Pliki czcionek URW Base 35 są dołączone w `assets/fonts/` wraz z ich licencją i wyjątkiem dotyczącym osadzania w dokumentach.
 
-Ilustrację generujemy bez napisu. Następnie `scripts/compose-label.sh` skaluje ją, dodaje poprawną nazwę, maskuje koło i ustawia 300 dpi.
+## Arkusze
+
+- Domyślna orientacja: A4 poziomo, **297 × 210 mm**; dostępne także A4 pionowo.
+- Średnica naklejki: 15–80 mm, odstęp między polami: 3 mm, margines: co najmniej 10 mm.
+- Podgląd wykorzystuje szerokość obszaru roboczego. Powiększenie 75–200% dotyczy tylko ekranu.
+- PDF: A4, 300 dpi, pełne grafiki i nałożone napisy. Puste strony i pomocnicze pola są pomijane.
+- Drukowanie: skala 100%, bez dopasowywania do strony.

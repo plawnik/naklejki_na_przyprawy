@@ -1,42 +1,41 @@
-# Naklejki na przyprawy
+# Etykiety na przyprawy
 
-Statyczna aplikacja do układania okrągłych etykiet na wielostronicowych arkuszach A4 i pobierania gotowego pliku PDF. Wszystko działa lokalnie w przeglądarce — obrazy użytkownika nie są wysyłane na serwer.
+Strona do projektowania naklejek na słoiki i pojemniki kuchenne. Wybierz ilustrację, wpisz własny napis i ułóż etykiety na arkuszach A4, a następnie pobierz gotowy PDF do wydruku.
 
-## Co jest gotowe
+**Adres strony: [plawnik.github.io/naklejki_na_przyprawy](https://plawnik.github.io/naklejki_na_przyprawy/)**
 
-- 38 etykiet z kategorii „Sole, mieszanki solne i wzmacniacze smaku”;
-- osobny plik PNG dla każdej etykiety: 945×945 px, 300 dpi, projektowany dla średnicy 80 mm;
-- wybór średnicy 22, 30, 40, 50, 60 i 80 mm albo własnego rozmiaru 15–80 mm;
-- kilka stron A4, stałe i widoczne pola, edycja lub usuwanie po kliknięciu;
-- licznik `×N` przy wzorze, jeśli znajduje się już na arkuszach;
-- import własnego obrazu z przesuwaniem kadru kołowego i skalowaniem;
-- generowanie wielostronicowego PDF A4 w rozdzielczości 300 dpi.
+## Co można zrobić
 
-Własne grafiki oraz bieżący układ arkuszy są przechowywane tylko w otwartej karcie. Odświeżenie strony rozpoczyna nowy projekt.
+- Wybrać spośród 38 ilustracji z pierwszej grupy: sole, mieszanki solne i wzmacniacze smaku.
+- Kliknąć naklejkę na kartce i zmienić jej tekst, czcionkę, kolor oraz wielkość liter. Każda kopia ma własne ustawienia.
+- Skorzystać z pięciu gotowych stylów. Pierwszy zachowuje wcześniejszy krój Nimbus Roman Bold i bordowy kolor `#651b18`.
+- Ustawić domyślny styl nowych naklejek na stronie głównej albo zapisać własny styl z edytora. Wybór zostaje zapamiętany w tej przeglądarce.
+- Automatycznie dopasować wielkość napisu i podział na wiersze do miejsca nad ilustracją. Można też wprowadzić własne podziały wierszy.
+- Wybrać średnicę 22, 30, 40, 50, 60 lub 80 mm, albo własny rozmiar od 15 do 80 mm.
+- Układać naklejki na wielu stronach A4, wybierać konkretne pola, zamieniać grafiki i usuwać etykiety.
+- Oglądać duży podgląd A4 poziomo lub pionowo, zmieniać powiększenie i dopasować kartkę do szerokości ekranu. Powiększenie podglądu nie zmienia rozmiaru wydruku.
+- Dodać własną grafikę z pliku, ustawić jej kadr oraz opcjonalnie nałożyć napis.
+- Pobrać wielostronicowy PDF A4 w rozdzielczości 300 dpi, z własnymi napisami, czcionkami i kolorami.
+- Pobrać [pełną listę etykiet kuchennych](data/pelna_lista_etykiet_kuchennych.txt), uzupełnioną o przyprawę tzatziki. Pozostałe grupy są na razie listą nazw.
 
-## Uruchomienie lokalne
+Grafiki są zapisane jako oryginalne PNG **1254 × 1254 px**, bez napisów, pod nazwami przypraw. Tekst jest nakładany przez przeglądarkę. Oryginały nie są skalowane, konwertowane ani przycinane; pełne kwadratowe obrazy trafiają również do PDF. „Sól w płatkach” i „Sól w piramidkach” mają osobne ilustracje.
 
-W katalogu repozytorium uruchom prosty serwer HTTP:
+## Jak przygotować wydruk
 
-```bash
-python3 -m http.server 8080
-```
+1. Ustaw średnicę naklejki, orientację A4 i domyślny styl.
+2. Klikaj wzory w katalogu, aby dodawać je do arkusza. Aby wskazać miejsce, najpierw kliknij puste pole.
+3. Kliknij umieszczoną naklejkę, zmień napis lub styl i wybierz **Zapisz zmiany**.
+4. Wybierz **Pobierz PDF**. Puste strony i oznaczenia pustych pól nie trafiają do wydruku.
+5. Drukuj PDF w skali **100% / Rozmiar rzeczywisty**, aby zachować średnice w milimetrach.
 
-Następnie otwórz `http://localhost:8080`.
+Projekt arkuszy i własne grafiki pozostają w otwartej karcie. Odświeżenie strony rozpoczyna nowy projekt; zapisany domyślny styl pozostaje. Obróbka grafik i generowanie PDF odbywają się w przeglądarce.
 
-## GitHub Pages
+## Pliki projektu
 
-Workflow `.github/workflows/pages.yml` jest celowo uruchamiany ręcznie. Aby opublikować stronę:
+- `assets/labels/` — oryginalne ilustracje bez napisów, nazwane według przypraw.
+- `data/labels.js` — katalog aktualnej grupy.
+- `data/assets-manifest.json` — przyporządkowanie oryginałów do przypraw oraz sumy SHA-256.
+- `assets/fonts/` — dołączone kroje pisma i ich licencja; strona nie pobiera czcionek z zewnętrznych usług.
+- [STYLE_GUIDE.md](STYLE_GUIDE.md) — opis grafiki i pięciu stylów.
 
-1. W `Settings → Pages` wybierz źródło `GitHub Actions`.
-2. W `Actions` uruchom workflow `Deploy to GitHub Pages` przyciskiem `Run workflow`.
-
-Repozytorium może pozostać prywatne, ale standardowa strona GitHub Pages utworzona z prywatnego repozytorium nie jest automatycznie prywatna. Dlatego samo dodanie plików do repozytorium nie uruchamia publikacji.
-
-## Dodawanie kolejnych etykiet
-
-1. Przygotuj końcowy PNG zgodnie z [STYLE_GUIDE.md](STYLE_GUIDE.md).
-2. Dodaj go do `assets/labels/` i miniaturę WebP do `assets/thumbs/`.
-3. Dopisz pozycję do `data/labels.js`.
-
-Skrypt `scripts/compose-label.sh` nakłada kontrolowany tekst, maskę kołową i metadane 300 dpi na gotową ilustrację bez napisu.
+Publikację strony po zmianach na gałęzi `main` obsługuje workflow GitHub Pages w repozytorium.

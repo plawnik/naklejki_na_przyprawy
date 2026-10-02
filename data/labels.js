@@ -1,44 +1,345 @@
+// Oryginalne PNG bez napisów. Tekst nakłada przeglądarka.
 window.LABELS = [
-  { id: '001-sol', name: 'Sól', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/001-sol.png', width: 945, dpi: 300 },
-  { id: '002-sol-drobna', name: 'Sól drobna', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/002-sol-drobna.png', width: 945, dpi: 300 },
-  { id: '003-sol-gruboziarnista', name: 'Sól gruboziarnista', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/003-sol-gruboziarnista.png', width: 945, dpi: 300 },
-  { id: '004-sol-jodowana', name: 'Sól jodowana', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/004-sol-jodowana.png', width: 945, dpi: 300 },
-  { id: '005-sol-niejodowana', name: 'Sól niejodowana', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/005-sol-niejodowana.png', width: 945, dpi: 300 },
-  { id: '006-sol-kamienna', name: 'Sól kamienna', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/006-sol-kamienna.png', width: 945, dpi: 300 },
-  { id: '007-sol-morska', name: 'Sól morska', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/007-sol-morska.png', width: 945, dpi: 300 },
-  { id: '008-sol-morska-platki', name: 'Sól morska w płatkach', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/008-sol-morska-platki.png', width: 945, dpi: 300 },
-  { id: '009-sol-koszerna', name: 'Sól koszerna', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/009-sol-koszerna.png', width: 945, dpi: 300 },
-  { id: '010-sol-himalajska-rozowa', name: 'Sól himalajska różowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/010-sol-himalajska-rozowa.png', width: 945, dpi: 300 },
-  { id: '011-sol-himalajska-czarna', name: 'Sól himalajska czarna', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/011-sol-himalajska-czarna.png', width: 945, dpi: 300 },
-  { id: '012-sol-hawajska-czarna', name: 'Sól hawajska czarna', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/012-sol-hawajska-czarna.png', width: 945, dpi: 300 },
-  { id: '013-sol-hawajska-czerwona', name: 'Sól hawajska czerwona', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/013-sol-hawajska-czerwona.png', width: 945, dpi: 300 },
-  { id: '014-sol-perska-niebieska', name: 'Sól perska niebieska', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/014-sol-perska-niebieska.png', width: 945, dpi: 300 },
-  { id: '015-fleur-de-sel', name: 'Fleur de sel', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/015-fleur-de-sel.png', width: 945, dpi: 300 },
-  { id: '016-sol-maldon', name: 'Sól Maldon', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/016-sol-maldon.png', width: 945, dpi: 300 },
-  { id: '017-sol-bambusowa', name: 'Sól bambusowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/017-sol-bambusowa.png', width: 945, dpi: 300 },
-  { id: '018-kala-namak', name: 'Kala namak', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/018-kala-namak.png', width: 945, dpi: 300 },
-  { id: '019-sol-peklowa', name: 'Sól peklowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/019-sol-peklowa.png', width: 945, dpi: 300 },
-  { id: '020-sol-nitrytowa', name: 'Sól nitrytowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/020-sol-nitrytowa.png', width: 945, dpi: 300 },
-  { id: '021-sol-do-kiszenia', name: 'Sól do kiszenia', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/021-sol-do-kiszenia.png', width: 945, dpi: 300 },
-  { id: '022-sol-wedzona', name: 'Sól wędzona', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/022-sol-wedzona.png', width: 945, dpi: 300 },
-  { id: '023-sol-truflowa', name: 'Sól truflowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/023-sol-truflowa.png', width: 945, dpi: 300 },
-  { id: '024-sol-cytrynowa', name: 'Sól cytrynowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/024-sol-cytrynowa.png', width: 945, dpi: 300 },
-  { id: '025-sol-limonkowa', name: 'Sól limonkowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/025-sol-limonkowa.png', width: 945, dpi: 300 },
-  { id: '026-sol-czosnkowa', name: 'Sól czosnkowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/026-sol-czosnkowa.png', width: 945, dpi: 300 },
-  { id: '027-sol-cebulowa', name: 'Sól cebulowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/027-sol-cebulowa.png', width: 945, dpi: 300 },
-  { id: '028-sol-selerowa', name: 'Sól selerowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/028-sol-selerowa.png', width: 945, dpi: 300 },
-  { id: '029-sol-paprykowa', name: 'Sól paprykowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/029-sol-paprykowa.png', width: 945, dpi: 300 },
-  { id: '030-sol-chili', name: 'Sól chili', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/030-sol-chili.png', width: 945, dpi: 300 },
-  { id: '031-sol-ziolowa', name: 'Sól ziołowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/031-sol-ziolowa.png', width: 945, dpi: 300 },
-  { id: '032-sol-sezamowa', name: 'Sól sezamowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/032-sol-sezamowa.png', width: 945, dpi: 300 },
-  { id: '033-sol-potasowa', name: 'Sól potasowa', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/033-sol-potasowa.png', width: 945, dpi: 300 },
-  { id: '034-chlorek-potasu', name: 'Chlorek potasu', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/034-chlorek-potasu.png', width: 945, dpi: 300 },
-  { id: '035-glutaminian-sodu', name: 'Glutaminian sodu', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/035-glutaminian-sodu.png', width: 945, dpi: 300 },
-  { id: '036-gomasio', name: 'Gomasio', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/036-gomasio.png', width: 945, dpi: 300 },
-  { id: '037-drozdze-nieaktywne', name: 'Drożdże nieaktywne', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/037-drozdze-nieaktywne.png', width: 945, dpi: 300 },
-  { id: '038-drozdze-nieaktywne-b12', name: 'Drożdże nieaktywne z witaminą B12', category: 'Sole i wzmacniacze smaku', src: 'assets/labels/038-drozdze-nieaktywne-b12.png', width: 945, dpi: 300 }
+  {
+    "name": "Sól",
+    "id": "sol",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól drobna",
+    "id": "sol-drobna",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-drobna.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól gruboziarnista",
+    "id": "sol-gruboziarnista",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-gruboziarnista.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól jodowana",
+    "id": "sol-jodowana",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-jodowana.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól niejodowana",
+    "id": "sol-niejodowana",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-niejodowana.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól kamienna",
+    "id": "sol-kamienna",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-kamienna.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól morska",
+    "id": "sol-morska",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-morska.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól w płatkach",
+    "id": "sol-w-platkach",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-w-platkach.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól koszerna",
+    "id": "sol-koszerna",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-koszerna.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól himalajska różowa",
+    "id": "sol-himalajska-rozowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-himalajska-rozowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól himalajska czarna",
+    "id": "sol-himalajska-czarna",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-himalajska-czarna.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól hawajska czarna",
+    "id": "sol-hawajska-czarna",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-hawajska-czarna.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól hawajska czerwona",
+    "id": "sol-hawajska-czerwona",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-hawajska-czerwona.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól perska niebieska",
+    "id": "sol-perska-niebieska",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-perska-niebieska.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Fleur de sel",
+    "id": "fleur-de-sel",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/fleur-de-sel.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól w piramidkach",
+    "id": "sol-w-piramidkach",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-w-piramidkach.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól bambusowa",
+    "id": "sol-bambusowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-bambusowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Kala namak",
+    "id": "kala-namak",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/kala-namak.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól peklowa",
+    "id": "sol-peklowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-peklowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól nitrytowa",
+    "id": "sol-nitrytowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-nitrytowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól do kiszenia",
+    "id": "sol-do-kiszenia",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-do-kiszenia.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól wędzona",
+    "id": "sol-wedzona",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-wedzona.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól truflowa",
+    "id": "sol-truflowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-truflowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól cytrynowa",
+    "id": "sol-cytrynowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-cytrynowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól limonkowa",
+    "id": "sol-limonkowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-limonkowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól czosnkowa",
+    "id": "sol-czosnkowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-czosnkowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól cebulowa",
+    "id": "sol-cebulowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-cebulowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól selerowa",
+    "id": "sol-selerowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-selerowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól paprykowa",
+    "id": "sol-paprykowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-paprykowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól chili",
+    "id": "sol-chili",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-chili.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól ziołowa",
+    "id": "sol-ziolowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-ziolowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól sezamowa",
+    "id": "sol-sezamowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-sezamowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Sól potasowa",
+    "id": "sol-potasowa",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/sol-potasowa.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Chlorek potasu",
+    "id": "chlorek-potasu",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/chlorek-potasu.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Glutaminian sodu",
+    "id": "glutaminian-sodu",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/glutaminian-sodu.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Gomasio",
+    "id": "gomasio",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/gomasio.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Drożdże nieaktywne",
+    "id": "drozdze-nieaktywne",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/drozdze-nieaktywne.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  },
+  {
+    "name": "Drożdże nieaktywne z witaminą B12",
+    "id": "drozdze-nieaktywne-b12",
+    "category": "Sole i wzmacniacze smaku",
+    "src": "assets/labels/drozdze-nieaktywne-b12.png",
+    "width": 1254,
+    "height": 1254,
+    "textOverlay": true
+  }
 ];
-
-window.LABELS.forEach(label => {
-  label.thumb = label.src.replace('/labels/', '/thumbs/').replace(/\.png$/, '.webp');
-});

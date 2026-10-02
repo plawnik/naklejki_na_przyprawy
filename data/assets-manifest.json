@@ -1,0 +1,306 @@
+[
+  {
+    "name": "Sól",
+    "file": "assets/labels/sol.png",
+    "originalFile": "Rustykalna etykieta z solą morską-1.png",
+    "sha256": "881c0bc8d595e308f6a8467ce682a364c1f9a849da1d71d906fd93cb116ab7b7",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól drobna",
+    "file": "assets/labels/sol-drobna.png",
+    "originalFile": "Rustykalna etykieta soli z ziołami-2.png",
+    "sha256": "912b03088f268aced6743a37ef74e6f80eda914f0888319cce108545eba17da8",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól gruboziarnista",
+    "file": "assets/labels/sol-gruboziarnista.png",
+    "originalFile": "Rustykalna misa soli i ziół-3.png",
+    "sha256": "ba2024c96fefd0a4d6e9250cf2c318a4d9db10f9bd4245b87e83ce2467315f10",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól jodowana",
+    "file": "assets/labels/sol-jodowana.png",
+    "originalFile": "Sól jodowana z morskim akcentem-4.png",
+    "sha256": "bc3878e7e09ea304cf2df4c9557fcc17115ee7cdd4034b4b93095c0e6c6d8adf",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól niejodowana",
+    "file": "assets/labels/sol-niejodowana.png",
+    "originalFile": "Kamionkowa miseczka z solą-5.png",
+    "sha256": "17d1c0c09efa652cee881b4154a0fb5cc8b8313f048d1c7b5f400452cb8d3c13",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól kamienna",
+    "file": "assets/labels/sol-kamienna.png",
+    "originalFile": "Sól kamienna, moździerz i zioła-6.png",
+    "sha256": "ca5737cb12c6817f9648f25e66ac86890d2b7b0dd2bbc0d4be653e194487b74b",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól morska",
+    "file": "assets/labels/sol-morska.png",
+    "originalFile": "Morska sól wśród muszli-7.png",
+    "sha256": "4288a710d216e4e45932a1f8099a469c8f3ad15fa27109afdc19909f4f3666b8",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól w płatkach",
+    "file": "assets/labels/sol-w-platkach.png",
+    "originalFile": "Morskie płatki soli i zioła-8.png",
+    "sha256": "2ff8be8911bd5f6d9e5c7f4a8793427a8b97a3c92da806b0c5cc62856fe7a377",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól koszerna",
+    "file": "assets/labels/sol-koszerna.png",
+    "originalFile": "Sól koszerna z ziołami-9.png",
+    "sha256": "e3555db026adf74333039743c5a1ce20e21c7582a27ab061b8fd27ce87c37f4a",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól himalajska różowa",
+    "file": "assets/labels/sol-himalajska-rozowa.png",
+    "originalFile": "Różowa sól himalajska na retro etykiecie-11.png",
+    "sha256": "95c470f9bbbc218d698441dd745e2b6868eb41d84ac2ff59493a554576ae585f",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól himalajska czarna",
+    "file": "assets/labels/sol-himalajska-czarna.png",
+    "originalFile": "Himalajska sól czarna w kamiennej misie-12.png",
+    "sha256": "8830e50ef56d608920200279a58f0679e57c363d6425fd3ae053ea2ec006039b",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól hawajska czarna",
+    "file": "assets/labels/sol-hawajska-czarna.png",
+    "originalFile": "Czarna sól hawajska w kokosowej misce-10.png",
+    "sha256": "2b0e36dc53904926c82706b9f5ca293ad8de512728a8aee749ec6d7e96bee941",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól hawajska czerwona",
+    "file": "assets/labels/sol-hawajska-czerwona.png",
+    "originalFile": "Hawajska sól alaea w miseczce-13.png",
+    "sha256": "f203f594d609aae1728fd5d8d05553b9e829b8c2ecc85a958e873b9593823127",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól perska niebieska",
+    "file": "assets/labels/sol-perska-niebieska.png",
+    "originalFile": "Błękitna sól w mosiężnej misie-14.png",
+    "sha256": "6d3c2d53d257b24ef0830b8b3468a4259869ae1af960c7aa01673cb46ab2d8f0",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Fleur de sel",
+    "file": "assets/labels/fleur-de-sel.png",
+    "originalFile": "Kwiat soli z lawendą morską-15.png",
+    "sha256": "02fb15cb1d0b479a70e28ead4491ac7b4c4d3e77d1dd53f4635358ea5aebc7a5",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól w piramidkach",
+    "file": "assets/labels/sol-w-piramidkach.png",
+    "originalFile": "Piramidki soli i zielone zioła-16.png",
+    "sha256": "8ca7c65f60b42ec5f6fddc0d8e2a892c4f7c13e4d7b8b385abc1153354cb9497",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól bambusowa",
+    "file": "assets/labels/sol-bambusowa.png",
+    "originalFile": "Bambusowa sól z ziołami-17.png",
+    "sha256": "cf92d80c2d32fa65dcab55cb1a6deb9ad9675c940cf779068ad0142a4e3138d2",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Kala namak",
+    "file": "assets/labels/kala-namak.png",
+    "originalFile": "Misa kala namak z ziołami-19.png",
+    "sha256": "896c1791ff58dd05f7c0176aeffa55cb1fc4779af291beeb546f94379a8fea05",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól peklowa",
+    "file": "assets/labels/sol-peklowa.png",
+    "originalFile": "Różowa sól peklująca z rozmarynem-18.png",
+    "sha256": "2089b4431fa03caa0e4d1175fdff2f4ef7acc64afb6e61efcbfa83b18a2d26bc",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól nitrytowa",
+    "file": "assets/labels/sol-nitrytowa.png",
+    "originalFile": "Sól peklująca i zioła-20.png",
+    "sha256": "661b69023d750276cc1eca1b1bc29fb8e8a721fcedbaeeb780ced685035fc4c6",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól do kiszenia",
+    "file": "assets/labels/sol-do-kiszenia.png",
+    "originalFile": "Sól do kiszenia, ogórki, koper i czosnek-24.png",
+    "sha256": "1a06d1f9eb15a339abaf01adc2ff68618694745f462abd64e8442a2a72c612b7",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól wędzona",
+    "file": "assets/labels/sol-wedzona.png",
+    "originalFile": "Rustykalna etykieta wędzonej soli-21.png",
+    "sha256": "335cd60f4588565149943e5cbbfe169d32188016c3f5efc9ebe0a97d405cf5e0",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól truflowa",
+    "file": "assets/labels/sol-truflowa.png",
+    "originalFile": "Truflowa sól w retro ilustracji-25.png",
+    "sha256": "8c2460f6ed853d12322ce4325572ccb2bf0666a2ac0e9fa77fea9eecde07be45",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól cytrynowa",
+    "file": "assets/labels/sol-cytrynowa.png",
+    "originalFile": "Cytrynowa sól na retro etykiecie-23.png",
+    "sha256": "cbb76d79d060dfe3caa0e731ff419d9287c00ff4b386fb10e8ddb9ad1053825f",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól limonkowa",
+    "file": "assets/labels/sol-limonkowa.png",
+    "originalFile": "Sól z limonką w stylu vintage-22.png",
+    "sha256": "118a83137e81024caa820d7a0a8cfe8cbf68bb9758aef2596e4c534655a25ce5",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól czosnkowa",
+    "file": "assets/labels/sol-czosnkowa.png",
+    "originalFile": "Rustykalna etykieta soli czosnkowej-26.png",
+    "sha256": "2da59eabe22cd1b7c81e717768c235f56723bc593e70c0afee24979bd64e0316",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól cebulowa",
+    "file": "assets/labels/sol-cebulowa.png",
+    "originalFile": "Sól cebulowa z ziołami vintage-27.png",
+    "sha256": "819cb1bcf3ce3a66aefbf5b28675f2a8d7e52f1aefe3c69147960903e125b06a",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól selerowa",
+    "file": "assets/labels/sol-selerowa.png",
+    "originalFile": "Sól selerowa z łodygami selera-29.png",
+    "sha256": "aab3515aec8654698b8e4063a81b71ef26a185eb5b366bdd1015ee846b922502",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól paprykowa",
+    "file": "assets/labels/sol-paprykowa.png",
+    "originalFile": "Paprykowa sól na retro etykiecie-28.png",
+    "sha256": "3847b027d01a784f3fb36d673943720ff083c155111fcd6ec487e1b17f59b94b",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól chili",
+    "file": "assets/labels/sol-chili.png",
+    "originalFile": "Sól chili z czerwonymi papryczkami-30.png",
+    "sha256": "7f25f4972504513a440b1f9f95a00fdb3e49df39aa1e8bf7cb78ca3a2bf3a816",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól ziołowa",
+    "file": "assets/labels/sol-ziolowa.png",
+    "originalFile": "Rustykalna sól z ziołami-32.png",
+    "sha256": "4edd3511c353838a07bf309345f7f33f1fd819d53f3dd999dae65b364d7fa962",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól sezamowa",
+    "file": "assets/labels/sol-sezamowa.png",
+    "originalFile": "Sól z sezamem i ziołami-31.png",
+    "sha256": "164aa8612e0609d76b5dd3cc565eadd8fd5b20f2d671393feb5a3135ab8b4ce1",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Sól potasowa",
+    "file": "assets/labels/sol-potasowa.png",
+    "originalFile": "Miseczka kryształków soli z ziołami-33.png",
+    "sha256": "0fcb2b324a11200b9d363e0eb6da5c789457e0ba1a8ab4373dc803fad3bf3010",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Chlorek potasu",
+    "file": "assets/labels/chlorek-potasu.png",
+    "originalFile": "Etykieta spiżarni z kryształkami minerałów-34.png",
+    "sha256": "02dace32e363e482f2a3cccf662056453822621fe24246b68a7369c561e090a6",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Glutaminian sodu",
+    "file": "assets/labels/glutaminian-sodu.png",
+    "originalFile": "Kryształki glutaminianu w misce z ziołami-35.png",
+    "sha256": "5835c5bdf7e96b77941c37b74dd8a12ffcd19af915a04f00ebceca6d0e8a791d",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Gomasio",
+    "file": "assets/labels/gomasio.png",
+    "originalFile": "Gomasio z sezamem i nori-36.png",
+    "sha256": "11366b9bf70c1f60d89c3b6777879252568f0e9d9a50362ed084c40fdecebf96",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Drożdże nieaktywne",
+    "file": "assets/labels/drozdze-nieaktywne.png",
+    "originalFile": "Retro etykieta z płatkami drożdżowymi-37.png",
+    "sha256": "71d87a7b79f772a78260b530d73d02c940574ef567ceb53ead8c47a8c1379357",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "name": "Drożdże nieaktywne z witaminą B12",
+    "file": "assets/labels/drozdze-nieaktywne-b12.png",
+    "originalFile": "Niebieska misa z płatkami drożdżowymi-38.png",
+    "sha256": "a02f6c4532b4c64e625761463ce9fb76d4eb063cef05ea16f72648e602c358f2",
+    "width": 1254,
+    "height": 1254
+  }
+]
