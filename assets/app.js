@@ -16,7 +16,7 @@ const STYLES = [
   { id:'elegant', name:'Elegancki winny', fontId:'italic', color:'#782b44', uppercase:false }
 ];
 const STYLE_KEY = 'naklejki.defaultStyle.v4';
-const A4 = { width:297, height:210, margin:10, gap:3 };
+const A4 = { width:210, height:297, margin:10, gap:3 };
 const fontMap = new Map(FONTS.map(font => [font.id, font]));
 const labelMap = new Map(LABELS.map(label => [label.id, label]));
 const imageCache = new Map();
@@ -24,7 +24,7 @@ const textLayoutCache = new Map();
 const measureContext = document.createElement('canvas').getContext('2d');
 const state = {
   size:30, pages:[], activeTarget:null, editingTarget:null, editDraft:null,
-  search:'', category:'Wszystkie', orientation:'landscape', previewZoom:100,
+  search:'', category:'Wszystkie', orientation:'portrait', previewZoom:100,
   defaultStyle:readDefaultStyle(), returnFocus:null, exporting:false
 };
 const cropState = { image:null, objectUrl:null, zoom:1, offsetX:0, offsetY:0, dragStart:null };
@@ -257,7 +257,7 @@ function initializeCategories() {
   els.catalogSummary.textContent=`${LABELS.length} wzorów · ${count} ${count===1?'kategoria':count>=2&&count<=4?'kategorie':'kategorii'}`;
 }
 function deletePage(pageIndex) {
-  if(state.pages[pageIndex].slots.some(Boolean)&&!confirm(`Usunąć stronę ${pageIndex+1} wraz z naklejkami?`)) return;
+  if(state.pages[pageIndex].slots.some(Boolean)&&!confirm(uiLanguage==='en'?`Delete page ${pageIndex+1} including its labels?`:`Usunąć stronę ${pageIndex+1} wraz z naklejkami?`)) return;
   state.pages.splice(pageIndex,1);if(!state.pages.length)state.pages.push(emptyPage());state.activeTarget=null;render();
 }
 let toastTimer;
@@ -587,3 +587,54 @@ const fontsReady=Promise.all(FONTS.map(font=>document.fonts.load(`${font.weight}
   textLayoutCache.clear();renderDefaultStyle();render();if(state.editDraft)updateEditorPreview();
 });
 fontsReady.catch(error=>{console.error(error);showToast('Nie udało się wczytać czcionek. Odśwież stronę.');});
+
+const UI_TRANSLATIONS = {"Etykiety na przyprawy":"Spice labels","Etykiety na przyprawy — edytor arkuszy A4":"Spice labels — A4 sheet editor","Strona została wygenerowana przy użyciu AI.":"This website was generated using AI.","Średnica naklejki":"Label diameter","Własna":"Custom","Rozmiar [mm]":"Size [mm]","Układ strony":"Page layout","Domyślny styl nowych naklejek":"Default style for new labels","Dodaj własną grafikę":"Add your own image","Szukaj przyprawy…":"Search spices…","Szukaj przyprawy":"Search spices","Filtruj grupę etykiet":"Filter label category","Twój arkusz A4":"Your A4 sheet","+ Dodaj stronę":"+ Add page","↓ Pobierz PDF":"↓ Download PDF","Kartka":"Paper","A4 poziomo":"A4 landscape","A4 pionowo":"A4 portrait","Powiększenie":"Zoom","Dopasuj do szerokości":"Fit to width","Wybierz wzór po lewej. Kliknij naklejkę na kartce, aby zmienić napis, czcionkę i kolor.":"Choose a design on the left. Click a label on the sheet to change its text, font and colour.","PDF zachowuje wybraną średnicę. Drukuj w skali 100% / „Rozmiar rzeczywisty”.":"The PDF preserves the selected diameter. Print at 100% / “Actual size”.","Edytuj naklejkę":"Edit label","Zamknij edytor":"Close editor","Napis automatycznie wypełnia miejsce nad ilustracją.":"Text automatically fills the space above the illustration.","Napis na naklejce":"Label text","Nazwa przyprawy":"Spice name","Możesz wpisać własny tekst i podzielić go na wiersze.":"Enter your own text and split it into lines.","5 gotowych stylów":"5 preset styles","Gotowe style":"Preset styles","Czcionka":"Font","Kolor napisu":"Text colour","Wielkość liter":"Letter case","WIELKIE LITERY":"UPPERCASE","Tak jak w tekście":"As entered","Używaj tego stylu dla kolejnych naklejek":"Use this style for new labels","Zmień grafikę":"Replace image","Usuń z pola":"Remove from slot","Anuluj":"Cancel","Zapisz zmiany":"Save changes","Własna grafika":"Custom image","Zamknij import":"Close import","Przeciągnij obraz, aby ustawić kadr. Suwakiem zmienisz jego skalę.":"Drag the image to position it. Use the slider to adjust its scale.","Nazwa etykiety":"Label name","Np. moja mieszanka":"E.g. my blend","Dodaj napis nad ilustracją":"Add text above the illustration","Skala":"Scale","Dodaj etykietę":"Add label","Biblioteka etykiet":"Label library","Podgląd stron A4":"A4 page preview","Informacja o stronie":"About this website","Klasyczny bordowy":"Classic burgundy","Botaniczny zielony":"Botanical green","Vintage brązowy":"Vintage brown","Prosty grafitowy":"Simple charcoal","Elegancki winny":"Elegant wine","Własny zapisany styl":"Saved custom style","Wstaw w wybrane pole":"Insert in selected slot","Dodaj do arkusza":"Add to sheet","Nie znaleziono takiej etykiety.":"No matching labels found.","Usuń stronę":"Delete page","Edytuj napis i styl":"Edit text and style","Wybierz etykietę":"Choose a label","Etykiety na tej stronie":"Labels on this page","Strona jest pusta.":"This page is empty.","Anuluj wybór pola":"Cancel slot selection","Wszystkie":"All","Własne":"Custom","Pozostałe":"Other","Sole, mieszanki solne i wzmacniacze smaku":"Salts, salt blends and flavour enhancers","Dodano naklejkę. Kliknij ją na kartce, aby zmienić napis.":"Label added. Click it on the sheet to change its text.","Zapisano napis i styl tej naklejki.":"Label text and style saved.","Usunięto naklejkę z pola.":"Label removed from slot.","Wybierz plik graficzny.":"Choose an image file.","Nie udało się odczytać obrazu.":"Could not read the image.","Dodaj przynajmniej jedną naklejkę.":"Add at least one label.","Tworzenie PDF…":"Creating PDF…","PDF gotowy. Drukuj w skali 100%.":"PDF ready. Print at 100%.","Nie udało się utworzyć PDF. Sprawdź, czy grafiki i czcionki się wczytały.":"Could not create the PDF. Check that images and fonts have loaded.","Nie udało się wczytać czcionek. Odśwież stronę.":"Could not load fonts. Refresh the page.","Sól":"Salt","Sól drobna":"Fine salt","Sól gruboziarnista":"Coarse salt","Sól jodowana":"Iodized salt","Sól niejodowana":"Non-iodized salt","Sól kamienna":"Rock salt","Sól morska":"Sea salt","Sól w płatkach":"Flake salt","Sól koszerna":"Kosher salt","Sól himalajska różowa":"Pink Himalayan salt","Sól himalajska czarna":"Black Himalayan salt","Sól hawajska czarna":"Black Hawaiian salt","Sól hawajska czerwona":"Red Hawaiian salt","Sól perska niebieska":"Persian blue salt","Sól w piramidkach":"Pyramid salt","Sól bambusowa":"Bamboo salt","Sól peklowa":"Curing salt","Sól nitrytowa":"Nitrite curing salt","Sól do kiszenia":"Pickling salt","Sól wędzona":"Smoked salt","Sól truflowa":"Truffle salt","Sól cytrynowa":"Lemon salt","Sól limonkowa":"Lime salt","Sól czosnkowa":"Garlic salt","Sól cebulowa":"Onion salt","Sól selerowa":"Celery salt","Sól paprykowa":"Paprika salt","Sól chili":"Chili salt","Sól ziołowa":"Herb salt","Sól sezamowa":"Sesame salt","Sól potasowa":"Potassium salt","Chlorek potasu":"Potassium chloride","Glutaminian sodu":"Monosodium glutamate","Drożdże nieaktywne":"Nutritional yeast","Drożdże nieaktywne z witaminą B12":"Nutritional yeast with vitamin B12","Papryki i chili":"Paprika and chili","Papryka słodka":"Sweet paprika","Papryka ostra":"Hot paprika","Papryka wędzona":"Smoked paprika","Pieprz cayenne":"Cayenne pepper"};
+const UI_PHRASES = [["Tworzenie PDF","Creating PDF"],["Dodaj etykietę:","Add label:"],["W arkuszu:","On sheet:"],["Edytuj pole","Edit slot"],["Puste pole","Empty slot"],["Wybierz etykietę.","Choose a label."],["Usunąć stronę","Delete page"],["wraz z naklejkami?","including its labels?"],["Wybierz wzór dla","Choose a design for"],["Etykiety na tej stronie","Labels on this page"],["Usuń stronę","Delete page"],["Strona","Page"],["strony","pages"],["stron","pages"],["strona","page"],["pola","slots"],["pole","slot"],["pól","slots"],["etykieta","label"],["etykiety","labels"],["etykiet","labels"],["wzorów","designs"],["kategoria","category"],["kategorie","categories"],["kategorii","categories"],["poziomo","landscape"],["pionowo","portrait"],["z","of"]];
+let uiLanguage = 'pl';
+try { uiLanguage = localStorage.getItem('naklejki.language') === 'en' ? 'en' : 'pl'; } catch (_) {}
+function translateText(text) {
+  const trimmed = text.trim();
+  if (UI_TRANSLATIONS[trimmed]) return text.replace(trimmed, UI_TRANSLATIONS[trimmed]);
+  let result = text;
+  for (const [polish, english] of UI_PHRASES) {
+    const escaped = polish.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    result = result.replace(new RegExp('(?<![\\p{L}])' + escaped + '(?![\\p{L}])', 'gu'), english);
+  }
+  return result;
+}
+const translatedValues = new WeakMap();
+function translateValue(owner, key, value, write) {
+  let saved = translatedValues.get(owner);
+  if (!saved) { saved = {}; translatedValues.set(owner, saved); }
+  if (!saved[key] || value !== saved[key].output) saved[key] = {original:value, output:value};
+  const output = uiLanguage === 'en' ? translateText(saved[key].original) : saved[key].original;
+  if (value !== output) write(output);
+  saved[key].output = output;
+}
+function translateInterface() {
+  uiObserver.disconnect();
+  document.documentElement.lang = uiLanguage;
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  let node;
+  while ((node = walker.nextNode())) {
+    if (node.parentElement.closest('script,style,svg,.sticker,#defaultStyleSample,#languageSelect,.visitor-counter,textarea')) continue;
+    const current = node;
+    translateValue(current, 'text', current.nodeValue, value => { current.nodeValue = value; });
+  }
+  document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(element => {
+    if (element.closest('.visitor-counter,#languageSelect')) return;
+    for (const attribute of ['placeholder','aria-label','title']) {
+      if (element.hasAttribute(attribute)) translateValue(element, attribute, element.getAttribute(attribute), value => element.setAttribute(attribute,value));
+    }
+  });
+  translateValue(document.querySelector('title'), 'text', document.title, value => { document.title = value; });
+  uiObserver.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['placeholder','aria-label','title']});
+}
+const uiObserver = new MutationObserver(translateInterface);
+document.getElementById('languageSelect').value = uiLanguage;
+document.getElementById('languageSelect').addEventListener('change', event => {
+  uiLanguage = event.target.value;
+  try { localStorage.setItem('naklejki.language',uiLanguage); } catch (_) {}
+  translateInterface();
+});
+translateInterface();

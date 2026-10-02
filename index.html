@@ -15,6 +15,7 @@
   <main class="app-shell">
     <aside class="library-panel" aria-label="Biblioteka etykiet">
       <div class="library-header">
+        <div class="language-tools"><select id="languageSelect" aria-label="Język / Language"><option value="pl">Polski</option><option value="en">English</option></select><div class="ai-info"><button class="icon-btn" type="button" aria-label="Informacja o stronie" aria-describedby="aiTooltip">ⓘ</button><div class="ai-tooltip" id="aiTooltip" role="tooltip"><span>Strona została wygenerowana przy użyciu AI.</span> <a href="https://github.com/plawnik/naklejki_na_przyprawy" target="_blank" rel="noopener noreferrer">GitHub</a></div></div></div>
         <div class="brand"><span class="brand-mark" aria-hidden="true">❧</span><div><h1>Etykiety na przyprawy</h1><p id="catalogSummary">Wzory z dostępnych kategorii</p></div></div>
         <div class="settings-grid">
           <div class="field"><label for="sizePreset">Średnica naklejki</label><select id="sizePreset"><option value="22">22 mm</option><option value="30" selected>30 mm</option><option value="40">40 mm</option><option value="50">50 mm</option><option value="60">60 mm</option><option value="80">80 mm</option><option value="custom">Własna</option></select></div>
@@ -27,11 +28,11 @@
       </div>
       <div class="catalog-tools"><input id="searchInput" type="search" placeholder="Szukaj przyprawy…" aria-label="Szukaj przyprawy"><select id="categoryFilter" aria-label="Filtruj grupę etykiet"></select></div>
       <div class="catalog" id="catalog"></div>
-      <footer class="library-footer"><a href="data/pelna_lista_etykiet_kuchennych.txt" download>Pełna lista etykiet kuchennych</a></footer>
+      <footer class="library-footer visitor-counter"><a href="http://www.counterliczniki.com">wordpress licznik odwiedzin</a><script type="text/javascript" src="https://www.freevisitorcounters.com/auth.php?id=4de53bf7752506fcfbe7082fa166fcf43b7a8285"></script><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1656832/t/5"></script></footer>
     </aside>
     <section class="workspace" aria-label="Podgląd stron A4">
       <header class="workspace-toolbar"><div class="workspace-title"><h2>Twój arkusz A4</h2><p id="workspaceStats">1 strona · 0 etykiet</p></div><div class="toolbar-actions"><button class="btn" id="addPageBtn" type="button">+ Dodaj stronę</button><button class="btn primary" id="exportBtn" type="button">↓ Pobierz PDF</button></div></header>
-      <div class="preview-toolbar"><label for="orientation">Kartka <select id="orientation"><option value="landscape">A4 poziomo</option><option value="portrait">A4 pionowo</option></select></label><label class="zoom-row" for="previewZoom"><span>Powiększenie</span><input id="previewZoom" type="range" min="75" max="200" step="5" value="100"><output id="previewZoomValue">100%</output></label><button class="btn small" id="fitPreviewBtn" type="button">Dopasuj do szerokości</button></div>
+      <div class="preview-toolbar"><label for="orientation">Kartka <select id="orientation"><option value="landscape">A4 poziomo</option><option value="portrait" selected>A4 pionowo</option></select></label><label class="zoom-row" for="previewZoom"><span>Powiększenie</span><input id="previewZoom" type="range" min="75" max="200" step="5" value="100"><output id="previewZoomValue">100%</output></label><button class="btn small" id="fitPreviewBtn" type="button">Dopasuj do szerokości</button></div>
       <p class="workspace-hint">Wybierz wzór po lewej. Kliknij naklejkę na kartce, aby zmienić napis, czcionkę i kolor.</p>
       <div class="pages" id="pages"></div><p class="print-note">PDF zachowuje wybraną średnicę. Drukuj w skali 100% / „Rozmiar rzeczywisty”.</p>
     </section>
