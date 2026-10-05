@@ -1,0 +1,117 @@
+{
+  "range": [
+    61,
+    75
+  ],
+  "count": 15,
+  "base_prompt": "Use case: precise-object-edit / illustration-story. Asset: ONE finished square PNG background for a spice label in a cohesive existing collection. Image 1 is the exact repository salt reference and authoritative circular frame, cream background, wood, botanical painting style. Image 2 is an accepted newer spice illustration and authoritative bowl/scoop arrangement. Preserve full uncropped circle within a white square, dark burgundy outer ring, ochre-gold inner ring, subtle pale cream paper interior, generous margins, warm richly detailed hand-painted botanical illustration. A single large brown wooden bowl at bottom center, small matching wooden scoop at lower LEFT. Preserve completely empty cream upper 40% for editor-added lettering. Side botanical/spice accents stay in lower half to lower 60%. Replace the salt crystals and fenugreek seeds and their plants entirely with this specifically requested dry spice mixture; the bowl, scoop and small scatter in front contain the same mixture. Show dry powder, herb flakes, nuts, seeds or salt crystals exactly as the subject requests. No words, lettering, logo, flags, watermark, packaging, cooked dish, plate, or multiple labels. No transparent background, cropped circle, flat icon, photo or hard collage. Match reference square 1254x1254 proportions. No blue or purple decorative flower petals in the mixture unless explicitly requested as real ingredients. Subject: ",
+  "reference_paths": [
+    "/workspace/scratch/b7ef4c4f59cf/review04/sol.png",
+    "/workspace/scratch/b7ef4c4f59cf/review04/v2/kozieradka.png"
+  ],
+  "mode": "built-in image_gen",
+  "items": [
+    {
+      "index": 61,
+      "name": "Przyprawa do tacos",
+      "file": "przyprawa-do-tacos.png",
+      "detail": "Russet-red dry taco seasoning with cumin, chili, paprika, garlic, oregano and small pepper specks. Side accents: red chili pods, cumin seeds, garlic cloves and oregano. No tacos, shells, tortillas, meat or vegetables arranged as a meal."
+    },
+    {
+      "index": 62,
+      "name": "Przyprawa do fajitas",
+      "file": "przyprawa-do-fajitas.png",
+      "detail": "Dry paprika-orange seasoning with garlic and onion granules, cumin, oregano and lime zest flecks. Side accents: red and green sweet peppers, half a green lime, onion and a small cumin-seed scatter. Bowl and scoop hold seasoning only, no cooked fajitas."
+    },
+    {
+      "index": 63,
+      "name": "Przyprawa chili con carne",
+      "file": "przyprawa-chili-con-carne.png",
+      "detail": "Deep brick-red ground chili and cumin blend with paprika, oregano, garlic and black pepper. Side accents: dried ancho-like red-brown chili pods, cumin, oregano and garlic. No beans, stew, meat or prepared chili dish."
+    },
+    {
+      "index": 64,
+      "name": "Przyprawa mole",
+      "file": "przyprawa-mole.png",
+      "detail": "Dry fine dark chocolate-brown spice mix with ground dried ancho/pasilla chili, cocoa, cinnamon and sesame flecks. Side accents: cacao pod and beans, dark wrinkled dried chili peppers, cinnamon sticks and pale sesame seeds. No chocolate bar, liquid sauce or cooked food."
+    },
+    {
+      "index": 65,
+      "name": "Przyprawa meksykańska",
+      "file": "przyprawa-meksykanska.png",
+      "detail": "Dry bright rusty-orange regional blend with chili, paprika, coriander, cumin, garlic and oregano flecks. Side accents: different red chili pods, coriander leaves and seeds, cumin and garlic. Visibly a mixed dry seasoning, no salsa, cactus or flag."
+    },
+    {
+      "index": 66,
+      "name": "Przyprawa tex-mex",
+      "file": "przyprawa-tex-mex.png",
+      "detail": "Coarse reddish-tan dry seasoning with smoked paprika, chili, cumin, onion and garlic granules and black pepper specks. Side accents: dried red chili, paprika pepper, onion, garlic and cumin seeds. No barbecue dish, tacos or packaging."
+    },
+    {
+      "index": 67,
+      "name": "Przyprawa chimichurri",
+      "file": "przyprawa-chimichurri.png",
+      "detail": "Dry coarse green herbal blend of parsley and oregano with garlic granules and a scattering of red chili flakes. Side accents: large flat parsley leaves, oregano sprigs, garlic cloves and a slender red chili. No oil, wet sauce or meat."
+    },
+    {
+      "index": 68,
+      "name": "Gremolata suszona",
+      "file": "gremolata-suszona.png",
+      "detail": "Dry vibrant green and lemon-yellow blend of chopped parsley, fine dried lemon zest and garlic granules. Side accents: flat parsley, a cut yellow lemon and narrow curls of lemon peel, garlic cloves. No oil or liquid, dominant green-gold seasoning without red chili."
+    },
+    {
+      "index": 69,
+      "name": "Przyprawa shawarma",
+      "file": "przyprawa-shawarma.png",
+      "detail": "Fine cinnamon-brown and golden dry blend of cumin, coriander, paprika, cardamom, turmeric, cinnamon and pepper. Side accents: cumin and coriander seeds, green cardamom pods, a cinnamon stick and turmeric root. No wrap, rotisserie or meat."
+    },
+    {
+      "index": 70,
+      "name": "Przyprawa kebab",
+      "file": "przyprawa-kebab.png",
+      "detail": "Warm red-brown dry spice mix of paprika, cumin, coriander, garlic, black pepper and oregano. Side accents: red paprika pepper, cumin and coriander seeds, garlic and oregano. No skewers, meat, bread or cooked dish."
+    },
+    {
+      "index": 71,
+      "name": "Przyprawa gyros",
+      "file": "przyprawa-gyros.png",
+      "detail": "Dry tan-green seasoning dominated by oregano, garlic, onion, thyme and paprika specks. Side accents: broad oregano leaves, thyme, garlic and a small onion. No gyro sandwich, pita or cooked meat."
+    },
+    {
+      "index": 72,
+      "name": "Przyprawa shoarma",
+      "file": "przyprawa-shoarma.png",
+      "detail": "Distinctive warm ochre-brown ground dry blend of cumin, coriander, turmeric, paprika, cinnamon, clove and black pepper. Side accents: turmeric root, cumin seeds, split nutmeg and dark cloves with a little coriander foliage. No meat, wraps or sauce."
+    },
+    {
+      "index": 73,
+      "name": "Przyprawa kofta",
+      "file": "przyprawa-kofta.png",
+      "detail": "Warm earthy tan-brown dry seasoning with cumin, coriander, black pepper, cinnamon and dried parsley flakes. Side accents: coriander seeds, cumin seeds, cinnamon sticks and flat parsley. No meatballs, skewers or cooked food."
+    },
+    {
+      "index": 74,
+      "name": "Przyprawa falafel",
+      "file": "przyprawa-falafel.png",
+      "detail": "Green-tan dry blend of cumin, coriander, garlic, parsley and black pepper. Side accents: abundant parsley and coriander leaves, cumin and coriander seeds, garlic. Bowl contains only dry herbs and spice granules, no chickpeas, falafel balls or tahini."
+    },
+    {
+      "index": 75,
+      "name": "Przyprawa satay",
+      "file": "przyprawa-satay.png",
+      "detail": "Dry golden ochre blend of turmeric, coriander, cumin, ginger, garlic and chili flecks. Side accents: turmeric and ginger roots, coriander seeds, garlic and a red chili. Only dry spice powder; no peanut sauce, liquid or skewers."
+    }
+  ],
+  "sources_consulted": [
+    "https://www.mccormick.com/products/old-bay-seasoning-16-oz",
+    "https://www.mccormick.com/products/lawrys-jerk-seasoning",
+    "https://www.tajin.com/us/tajin-clasico/",
+    "https://spiceislands.com/product/fines-herbes/",
+    "https://www.goya.com/en/products/sazon-with-coriander-and-annatto/",
+    "https://bart.co.uk/products/bouquet-garni-large-jar",
+    "https://www.ajinomoto.com/brands/hondashi",
+    "https://www.ajinomoto.co.jp/products/detail/?ProductName=hondashi_3",
+    "https://maesri.com.au/product/tom-yum-paste-hot-sour-1kg/"
+  ],
+  "ingredient_note": "Representative visual compositions for dried seasoning; generic regional blends are artistic choices, not an assertion of a single canonical recipe."
+}

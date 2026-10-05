@@ -1,0 +1,81 @@
+{
+  "range": [
+    91,
+    99
+  ],
+  "count": 9,
+  "base_prompt": "Use case: precise-object-edit / illustration-story. Asset: ONE finished square PNG background for a spice label in a cohesive existing collection. Image 1 is the exact repository salt reference and authoritative circular frame, cream background, wood, botanical painting style. Image 2 is an accepted newer spice illustration and authoritative bowl/scoop arrangement. Preserve full uncropped circle within a white square, dark burgundy outer ring, ochre-gold inner ring, subtle pale cream paper interior, generous margins, warm richly detailed hand-painted botanical illustration. A single large brown wooden bowl at bottom center, small matching wooden scoop at lower LEFT. Preserve completely empty cream upper 40% for editor-added lettering. Side botanical/spice accents stay in lower half to lower 60%. Replace the salt crystals and fenugreek seeds and their plants entirely with this specifically requested dry spice mixture; the bowl, scoop and small scatter in front contain the same mixture. Show dry powder, herb flakes, nuts, seeds or salt crystals exactly as the subject requests. No words, lettering, logo, flags, watermark, packaging, cooked dish, plate, or multiple labels. No transparent background, cropped circle, flat icon, photo or hard collage. Match reference square 1254x1254 proportions. No blue or purple decorative flower petals in the mixture unless explicitly requested as real ingredients. Subject: ",
+  "reference_paths": [
+    "/workspace/scratch/b7ef4c4f59cf/review04/sol.png",
+    "/workspace/scratch/b7ef4c4f59cf/review04/v2/kozieradka.png"
+  ],
+  "mode": "built-in image_gen",
+  "items": [
+    {
+      "index": 91,
+      "name": "Przyprawa perska",
+      "file": "przyprawa-perska.png",
+      "detail": "Dry light cinnamon-brown advieh-style regional seasoning with cinnamon, cardamom, cumin and nutmeg, speckled with small dried muted pink rose-petal fragments. Side accents: green cardamom pods, cinnamon, a split nutmeg and a small natural pale-pink rose. No rice, tea or dish."
+    },
+    {
+      "index": 92,
+      "name": "Przyprawa etiopska",
+      "file": "przyprawa-etiopska.png",
+      "detail": "Dry deep rust-red regional chili blend with ginger, fenugreek, coriander, cumin and cardamom flecks. Side accents: dried red chili peppers, ginger root, tan fenugreek seeds, coriander and green cardamom. No stew, injera or dish."
+    },
+    {
+      "index": 93,
+      "name": "Przyprawa egipska",
+      "file": "przyprawa-egipska.png",
+      "detail": "Dry coarse sandy golden regional nut-and-seed mixture with hazelnut crumbs, sesame, coriander, cumin and black pepper. Side accents: cracked hazelnuts, white sesame, coriander leaves and seeds and cumin seeds. No bread, hummus, oil or prepared meal."
+    },
+    {
+      "index": 94,
+      "name": "Przyprawa tunezyjska",
+      "file": "przyprawa-tunezyjska.png",
+      "detail": "Dry red-orange harissa-style regional spice blend with hot chili, garlic, coriander, cumin and caraway. Side accents: dried red chili pods, garlic, coriander seeds and narrow curved caraway seeds. No paste, couscous, sauce or liquid."
+    },
+    {
+      "index": 95,
+      "name": "Przyprawa izraelska",
+      "file": "przyprawa-izraelska.png",
+      "detail": "Dry light golden-brown Jerusalem-style regional seasoning with cumin, coriander, turmeric, paprika, garlic and black pepper. Side accents: coriander seeds and foliage, cumin, turmeric root, garlic and red paprika. No hummus, falafel, food dish or flag."
+    },
+    {
+      "index": 96,
+      "name": "Przyprawa karaibska",
+      "file": "przyprawa-karaibska.png",
+      "detail": "Dry warm russet regional spice blend of allspice, thyme, ginger, garlic, black pepper and red chili with tan sugar granules. Side accents: round allspice berries, thyme, ginger and red-orange Scotch bonnet peppers. No tropical drink, meat or cooked dish."
+    },
+    {
+      "index": 97,
+      "name": "Przyprawa hawajska",
+      "file": "przyprawa-hawajska.png",
+      "detail": "Dry warm tan-gold regional seasoning with ginger, garlic, toasted sesame, brown sugar, fine dried pineapple and red chili flecks. Side accents: a small pineapple wedge, ginger root, garlic, sesame and red chili. No meat, rice, sauce, leis or flags; the bowl is dry seasoning, not fruit salad."
+    },
+    {
+      "index": 98,
+      "name": "Przyprawa południowoafrykańska",
+      "file": "przyprawa-poludniowoafrykanska.png",
+      "detail": "Dry peri-peri-style reddish-orange regional spice blend with chili, paprika, coriander, garlic, black pepper and dried lemon zest. Side accents: small red bird's-eye chilies, coriander seeds, garlic and yellow lemon. No boerewors, steak, dish or flag."
+    },
+    {
+      "index": 99,
+      "name": "Przyprawa tzatziki",
+      "file": "przyprawa-tzatziki.png",
+      "detail": "Dry pale cream and olive-green seasoning with many garlic granules, dried dill, parsley, mint and black pepper flecks. Side accents: feathery dill fronds, garlic cloves, mint leaves and a restrained cucumber slice beside the bowl. Bowl and scoop hold dry garlic-herb mixture, no yoghurt, white sauce, liquid or diced cucumber."
+    }
+  ],
+  "sources_consulted": [
+    "https://www.mccormick.com/products/old-bay-seasoning-16-oz",
+    "https://www.mccormick.com/products/lawrys-jerk-seasoning",
+    "https://www.tajin.com/us/tajin-clasico/",
+    "https://spiceislands.com/product/fines-herbes/",
+    "https://www.goya.com/en/products/sazon-with-coriander-and-annatto/",
+    "https://bart.co.uk/products/bouquet-garni-large-jar",
+    "https://www.ajinomoto.com/brands/hondashi",
+    "https://www.ajinomoto.co.jp/products/detail/?ProductName=hondashi_3",
+    "https://maesri.com.au/product/tom-yum-paste-hot-sour-1kg/"
+  ],
+  "ingredient_note": "Representative visual compositions for dried seasoning; generic regional blends are artistic choices, not an assertion of a single canonical recipe."
+}

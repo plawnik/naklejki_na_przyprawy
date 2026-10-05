@@ -1,0 +1,117 @@
+{
+  "range": [
+    46,
+    60
+  ],
+  "count": 15,
+  "base_prompt": "Use case: precise-object-edit / illustration-story. Asset: ONE finished square PNG background for a spice label in a cohesive existing collection. Image 1 is the exact repository salt reference and authoritative circular frame, cream background, wood, botanical painting style. Image 2 is an accepted newer spice illustration and authoritative bowl/scoop arrangement. Preserve full uncropped circle within a white square, dark burgundy outer ring, ochre-gold inner ring, subtle pale cream paper interior, generous margins, warm richly detailed hand-painted botanical illustration. A single large brown wooden bowl at bottom center, small matching wooden scoop at lower LEFT. Preserve completely empty cream upper 40% for editor-added lettering. Side botanical/spice accents stay in lower half to lower 60%. Replace the salt crystals and fenugreek seeds and their plants entirely with this specifically requested dry spice mixture; the bowl, scoop and small scatter in front contain the same mixture. Show dry powder, herb flakes, nuts, seeds or salt crystals exactly as the subject requests. No words, lettering, logo, flags, watermark, packaging, cooked dish, plate, or multiple labels. No transparent background, cropped circle, flat icon, photo or hard collage. Match reference square 1254x1254 proportions. No blue or purple decorative flower petals in the mixture unless explicitly requested as real ingredients. Subject: ",
+  "reference_paths": [
+    "/workspace/scratch/b7ef4c4f59cf/review04/sol.png",
+    "/workspace/scratch/b7ef4c4f59cf/review04/v2/kozieradka.png"
+  ],
+  "mode": "built-in image_gen",
+  "items": [
+    {
+      "index": 46,
+      "name": "Przyprawa bałkańska",
+      "file": "przyprawa-balkanska.png",
+      "detail": "Coarse warm russet seasoning with red paprika, dried savory, oregano, garlic granules and black pepper. Side accents: a ripe red pepper, several garlic cloves and bushy summer-savory and oregano sprigs."
+    },
+    {
+      "index": 47,
+      "name": "Przyprawa grecka",
+      "file": "przyprawa-grecka.png",
+      "detail": "Dry olive-green and cream blend of oregano, thyme, garlic granules, onion and dried lemon zest with black pepper. Side accents: lush oregano, thyme, a cut yellow lemon and garlic cloves; no olives or cheese."
+    },
+    {
+      "index": 48,
+      "name": "Przyprawa włoska",
+      "file": "przyprawa-wloska.png",
+      "detail": "Dry mixed-herb flakes, mostly green with oregano, basil, rosemary, thyme and marjoram. Side accents: large basil leaves, slim rosemary needles, oregano and thyme sprigs. Bowl contains only chopped dried herbs, not pasta or tomatoes."
+    },
+    {
+      "index": 49,
+      "name": "Zioła prowansalskie",
+      "file": "ziola-prowansalskie.png",
+      "detail": "Coarse green-grey dried herb mix with thyme, rosemary, savory, oregano and marjoram. Side accents: natural thyme, rosemary and savory sprigs, with a small lavender flowering sprig at the edge only. The bowl is green herb flakes, no purple petals."
+    },
+    {
+      "index": 50,
+      "name": "Fines herbes",
+      "file": "fines-herbes.png",
+      "detail": "Delicate finely chopped green dried herbs: parsley, chervil, tarragon and chives. Distinct side plants: flat parsley, delicate fernlike chervil, narrow tarragon leaves and straight tubular chive stems. Green flaky seasoning without red chili, salt crystals or woody rosemary."
+    },
+    {
+      "index": 51,
+      "name": "Bouquet garni",
+      "file": "bouquet-garni.png",
+      "detail": "Dry green and tan chopped parsley, thyme and bay leaves in bowl and scoop. A small tied herb bundle of whole bay leaves, parsley and thyme sits at the lower right beside loose natural sprigs. The tied bundle stays beside the bowl, not inside it."
+    },
+    {
+      "index": 52,
+      "name": "Quatre épices",
+      "file": "quatre-epices.png",
+      "detail": "Fine pale warm grey-brown ground spice mixture of white pepper, ginger, nutmeg and cloves, with subtle dark speckling. Side accents: white peppercorns on small sprigs, a split nutmeg with marbled interior, dark cloves and ginger root. No herbs or red chili."
+    },
+    {
+      "index": 53,
+      "name": "Przyprawa kreolska",
+      "file": "przyprawa-kreolska.png",
+      "detail": "Dry red-orange paprika blend generously flecked with thyme, oregano, garlic, onion and pepper. Side accents: red sweet pepper, garlic, thyme and oregano. A richly herbal Creole seasoning, no cooked food."
+    },
+    {
+      "index": 54,
+      "name": "Przyprawa cajun",
+      "file": "przyprawa-cajun.png",
+      "detail": "Bold rusty-red dry seasoning with cayenne, paprika, coarse black pepper, garlic and onion granules, small thyme flakes. Side accents: slender red cayenne peppers, garlic cloves, a small onion and thyme. More peppery and less herbal than the Creole illustration."
+    },
+    {
+      "index": 55,
+      "name": "Przyprawa jerk",
+      "file": "przyprawa-jerk.png",
+      "detail": "Dry brown and russet seasoning heavily speckled with thyme, allspice, black pepper, garlic and red chili. Side accents: round allspice berries and their leaves, squat red-orange Scotch bonnet peppers, thyme and fresh ginger. Only spice powder and flakes in bowl."
+    },
+    {
+      "index": 56,
+      "name": "Przyprawa blackened",
+      "file": "przyprawa-blackened.png",
+      "detail": "Deep reddish-brown paprika and cayenne dry rub with dense black pepper specks, garlic, thyme and oregano. Side accents: dark peppercorns, dried red chili pods, garlic and thyme. Powder looks like spice, never burnt coal, meat or charred chunks."
+    },
+    {
+      "index": 57,
+      "name": "Old Bay",
+      "file": "old-bay.png",
+      "detail": "Orange-brown dry seafood seasoning, fine paprika and ground celery seed with black and red pepper specks and a little pale salt. Side accents: natural celery leaves with tiny tan celery seeds, a red pepper and black peppercorns. No brand packaging, label text, crab, fish or seafood dish."
+    },
+    {
+      "index": 58,
+      "name": "Adobo",
+      "file": "adobo.png",
+      "detail": "Pale creamy beige dry garlic-forward seasoning with visible garlic granules, black pepper specks and small oregano flakes. Side accents: garlic bulb and cloves, oregano and a few peppercorns. Keep pale savoury powder distinct from red chili blends; no sauce."
+    },
+    {
+      "index": 59,
+      "name": "Sazón",
+      "file": "sazon.png",
+      "detail": "Fine vibrant burnt-orange dry seasoning colored by annatto with cumin, coriander, garlic and pepper. Side accents: an opened red spiky annatto pod with small red-orange seeds, coriander seeds and leaves, cumin seeds, garlic. No saffron threads, food or packaging."
+    },
+    {
+      "index": 60,
+      "name": "Tajín",
+      "file": "tajin.png",
+      "detail": "Dry orange-red ground chili seasoning with tiny white sea-salt specks and pale dried lime flecks. Side accents: a halved green lime, red dried chili peppers and a few salt crystals. No brand logo, fruit dish or bottled sauce."
+    }
+  ],
+  "sources_consulted": [
+    "https://www.mccormick.com/products/old-bay-seasoning-16-oz",
+    "https://www.mccormick.com/products/lawrys-jerk-seasoning",
+    "https://www.tajin.com/us/tajin-clasico/",
+    "https://spiceislands.com/product/fines-herbes/",
+    "https://www.goya.com/en/products/sazon-with-coriander-and-annatto/",
+    "https://bart.co.uk/products/bouquet-garni-large-jar",
+    "https://www.ajinomoto.com/brands/hondashi",
+    "https://www.ajinomoto.co.jp/products/detail/?ProductName=hondashi_3",
+    "https://maesri.com.au/product/tom-yum-paste-hot-sour-1kg/"
+  ],
+  "ingredient_note": "Representative visual compositions for dried seasoning; generic regional blends are artistic choices, not an assertion of a single canonical recipe."
+}
