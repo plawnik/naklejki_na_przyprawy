@@ -56,9 +56,9 @@ window.I18N = (() => {
         staticText.push({node,source:node.nodeValue});
       }
     }
-    document.querySelectorAll('[placeholder],[aria-label],[title],meta[name="description"]').forEach(element => {
+    document.querySelectorAll('[placeholder],[aria-label],[title],[alt],meta[name="description"]').forEach(element => {
       if (element.closest('script,style,svg,.sticker,#languageSelect,#catalog,#pages,#stylePresets')) return;
-      for (const attribute of ['placeholder','aria-label','title','content']) {
+      for (const attribute of ['placeholder','aria-label','title','alt','content']) {
         if (element.hasAttribute(attribute)) staticAttributes.push({element,attribute,source:element.getAttribute(attribute)});
       }
     });

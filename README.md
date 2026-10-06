@@ -78,3 +78,11 @@ Obecnie aktywne są **PL i EN**. Dla **uk, ru, fr, es i cs** przygotowane są mi
 ## Własny dobór popularnego zestawu
 
 W [data/presets.json](data/presets.json) pierwsze 20 kluczy tworzy zestaw 20 pozycji, pierwsze 40 zestaw 40 itd. Wpisy powinny być unikalne i odnosić się do dostępnych grafik. Po usunięciu grafiki strona pomija brakującą pozycję i podaje liczbę niedostępnych ilustracji. Powtórne dodanie zestawu nie tworzy duplikatów; dodaje ponownie tylko pozycje, które usunięto z arkuszy.
+
+## Licznik odwiedzin
+
+U góry strony, obok wyboru języka, jest wspólny licznik **wyświetleń strony** obsługiwany przez [Hits](https://github.com/silentsoft/hits). Kliknięcie licznika otwiera publiczne statystyki. Zliczane są pobrania licznika podczas otwierania lub odświeżania strony; wynik nie oznacza liczby unikalnych osób.
+
+Licznik wczytuje się raz przy otwarciu opublikowanej strony GitHub Pages. Zmiana języka, wyszukiwanie i edycja naklejek nie pobierają go ponownie. Lokalne kopie strony nie zwiększają wyniku. Nazwa i opisy licznika zmieniają się wraz z PL/EN, a wynik jest wspólny dla obu języków.
+
+Wynik przechowuje zewnętrzna usługa, więc jest wspólny dla różnych przeglądarek i komputerów. Do strony nie jest dodawany zewnętrzny skrypt; pobierany jest tylko obraz SVG licznika z `hits.sh`. Jeśli usługa jest niedostępna, zamiast uszkodzonego obrazka pojawia się „—”, a edytor działa dalej. Adres strony przekazywany licznikowi jest stały, bez parametrów wyszukiwania i fragmentów adresu.

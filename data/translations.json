@@ -3,6 +3,9 @@
   "defaultLanguage": "pl",
   "languages": [{"code":"pl","name":"Polski","enabled":true},{"code":"en","name":"English","enabled":true},{"code":"uk","name":"Українська","enabled":false},{"code":"ru","name":"Русский","enabled":false},{"code":"fr","name":"Français","enabled":false},{"code":"es","name":"Español","enabled":false},{"code":"cs","name":"Čeština","enabled":false}],
   "ui": {
+    "Wyświetlenia": {"pl":"Wyświetlenia","en":"Page views","uk":"","ru":"","fr":"","es":"","cs":""},
+    "Statystyki wyświetleń strony": {"pl":"Statystyki wyświetleń strony","en":"Page view statistics","uk":"","ru":"","fr":"","es":"","cs":""},
+    "Licznik wyświetleń strony": {"pl":"Licznik wyświetleń strony","en":"Page view counter","uk":"","ru":"","fr":"","es":"","cs":""},
     "Dodano: {labels}. Zestaw: {size}.": {"pl":"Dodano: {labels}. Zestaw: {size}.","en":"Added: {labels}. Set: {size}.","uk":"","ru":"","fr":"","es":"","cs":""},
     "Brakujące grafiki: {missing}.": {"pl":"Brakujące grafiki: {missing}.","en":"Missing artwork: {missing}.","uk":"","ru":"","fr":"","es":"","cs":""},
     "Etykiety na przyprawy": {"pl":"Etykiety na przyprawy","en":"Spice labels","uk":"","ru":"","fr":"","es":"","cs":""},

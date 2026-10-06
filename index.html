@@ -10,13 +10,14 @@
   <link rel="stylesheet" href="assets/app.css">
   <script src="data/labels.js" defer></script>
   <script src="assets/i18n.js" defer></script>
+  <script src="assets/visitor-counter.js" defer></script>
   <script src="assets/app.js" defer></script>
 </head>
 <body>
   <main class="app-shell">
     <aside class="library-panel" aria-label="Biblioteka etykiet">
       <div class="library-header">
-        <div class="language-tools"><select id="languageSelect" aria-label="Język / Language" disabled><option value="pl">Polski</option><option value="en">English</option></select><div class="ai-info"><button class="icon-btn" type="button" aria-label="Informacja o stronie" aria-describedby="aiTooltip">ⓘ</button><div class="ai-tooltip" id="aiTooltip" role="tooltip"><span>Cała strona została przygotowana przy użyciu sztucznej inteligencji (AI): kod, układ i wygląd interfejsu, funkcje edytora oraz grafiki etykiet i treści. Projekt rozwija się na podstawie pomysłów i uwag użytkownika. Kod źródłowy jest dostępny na GitHub.</span> <a href="https://github.com/plawnik/naklejki_na_przyprawy" target="_blank" rel="noopener noreferrer">GitHub</a></div></div></div>
+        <div class="language-tools"><select id="languageSelect" aria-label="Język / Language" disabled><option value="pl">Polski</option><option value="en">English</option></select><div class="ai-info"><button class="icon-btn" type="button" aria-label="Informacja o stronie" aria-describedby="aiTooltip">ⓘ</button><div class="ai-tooltip" id="aiTooltip" role="tooltip"><span>Cała strona została przygotowana przy użyciu sztucznej inteligencji (AI): kod, układ i wygląd interfejsu, funkcje edytora oraz grafiki etykiet i treści. Projekt rozwija się na podstawie pomysłów i uwag użytkownika. Kod źródłowy jest dostępny na GitHub.</span> <a href="https://github.com/plawnik/naklejki_na_przyprawy" target="_blank" rel="noopener noreferrer">GitHub</a></div></div><a class="visitor-counter" href="https://hits.sh/plawnik.github.io/naklejki_na_przyprawy/" target="_blank" rel="noopener noreferrer" aria-label="Statystyki wyświetleń strony" title="Statystyki wyświetleń strony"><span>Wyświetlenia</span><img id="visitorCounterBadge" alt="Licznik wyświetleń strony" height="20" decoding="async" referrerpolicy="no-referrer" hidden><span id="visitorCounterFallback" aria-hidden="true">—</span></a></div>
         <div class="brand"><span class="brand-mark" aria-hidden="true">❧</span><div><h1>Etykiety na przyprawy</h1><p id="catalogSummary">Wzory z dostępnych kategorii</p></div></div>
         <div class="settings-grid">
           <div class="field"><label for="sizePreset">Średnica naklejki</label><select id="sizePreset"><option value="22">22 mm</option><option value="30" selected>30 mm</option><option value="40">40 mm</option><option value="50">50 mm</option><option value="60">60 mm</option><option value="80">80 mm</option><option value="custom">Własna</option></select></div>
