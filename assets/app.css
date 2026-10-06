@@ -24,6 +24,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .btn:hover { border-color:#aa8971; background:#fffaf1; } .btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; } .btn.primary:hover { background:#622318; }
 .btn.danger { color:#9b342a; background:#fff7f5; border-color:#e3b7b0; } .btn:disabled { opacity:.6; cursor:wait; } .btn.small { min-height:34px; padding:6px 10px; font-size:12px; }
 .import-label-btn { margin-top:12px; width:100%; }
+.preset-picker { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:8px; margin-top:14px; }
+.preset-picker small { grid-column:1 / -1; color:var(--muted); font-size:12px; line-height:1.4; }
+.preset-picker .btn { min-height:42px; }
 .catalog-tools { padding:13px 14px; display:grid; grid-template-columns:minmax(0,1fr) 98px; gap:8px; border-bottom:1px solid var(--line); } .catalog-tools select { font-size:12px; padding:5px; }
 .catalog { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; padding:12px; overflow:auto; align-content:start; min-height:100px; flex:1; }
 .label-card { position:relative; display:grid; grid-template-columns:66px minmax(0,1fr); gap:8px; align-items:center; min-height:99px; padding:9px; text-align:left; border:1px solid var(--line); border-radius:12px; background:white; }

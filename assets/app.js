@@ -1,6 +1,9 @@
 'use strict';
 
 const LABELS = window.LABELS || [];
+const I18N = window.I18N;
+const tr = (source,values) => I18N.text(source,values);
+let presetData = null;
 const FONTS = [
   { id:'roman', name:'Nimbus Roman Bold', family:'Label Roman', weight:700 },
   { id:'palatino', name:'Palatino — P052 Bold', family:'Label Palatino', weight:700 },
@@ -35,7 +38,8 @@ const els = Object.fromEntries([
   'editModal','closeModalBtn','modalPreview','modalTitle','modalPosition','replaceBtn','removeBtn',
   'labelText','labelFont','labelColor','labelCase','stylePresets','makeDefaultStyle','saveEditBtn','cancelEditBtn',
   'importImageBtn','imageFileInput','importModal','closeImportBtn','cancelImportBtn','confirmImportBtn',
-  'customLabelName','customTextOverlay','cropStage','cropCanvas','cropZoom','cropZoomValue','toast'
+  'customLabelName','customTextOverlay','cropStage','cropCanvas','cropZoom','cropZoomValue','toast',
+  'languageSelect','presetSize','addPresetBtn'
 ].map(id => [id, document.getElementById(id)]));
 
 function styleFields(style) {
@@ -59,22 +63,24 @@ function setDefaultStyle(style) {
 }
 function renderDefaultStyle() {
   const selected = STYLES.find(style => sameStyle(style,state.defaultStyle));
-  els.defaultStyle.innerHTML = STYLES.map(style => `<option value="${style.id}">${style.name}</option>`).join('') + (selected ? '' : '<option value="custom">Własny zapisany styl</option>');
+  els.defaultStyle.innerHTML = STYLES.map(style => `<option value="${style.id}">${escapeHtml(tr(style.name))}</option>`).join('') + (selected ? '' : `<option value="custom">${escapeHtml(tr('Własny zapisany styl'))}</option>`);
   els.defaultStyle.value = selected?.id || 'custom';
   const font = fontMap.get(state.defaultStyle.fontId);
   Object.assign(els.defaultStyleSample.style,{fontFamily:`'${font.family}'`,fontWeight:font.weight,color:state.defaultStyle.color});
-  els.defaultStyleSample.textContent = state.defaultStyle.uppercase ? 'SÓL ZIOŁOWA' : 'Sól ziołowa';
+  const sample = I18N.name({name:'Sól ziołowa',translationKey:'01/sol-ziolowa'});
+  els.defaultStyleSample.textContent = state.defaultStyle.uppercase ? sample.toLocaleUpperCase(I18N.language) : sample;
 }
 function newSticker(labelId) {
   const label = labelMap.get(labelId);
-  return { labelId, text:label.textOverlay === false ? '' : label.name, ...state.defaultStyle };
+  return { labelId, text:label.textOverlay === false ? '' : I18N.name(label),
+    autoText:label.textOverlay !== false && !label.custom, ...state.defaultStyle };
 }
 function escapeHtml(text) { return String(text).replace(/[&<>'"]/g,char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'})[char]); }
 
 // One normalized layout is shared by the SVG preview and the PDF canvas.
 // Line widths follow the inner circle so long names stay inside the rings.
 function fitText(sticker) {
-  const displayed = (sticker.uppercase ? sticker.text.toLocaleUpperCase('pl') : sticker.text).trim();
+  const displayed = (sticker.uppercase ? sticker.text.toLocaleUpperCase(I18N.language) : sticker.text).trim();
   if (!displayed) return { fontSize:0, lines:[] };
   const key = JSON.stringify([displayed,sticker.fontId]);
   if (textLayoutCache.has(key)) return textLayoutCache.get(key);
@@ -170,34 +176,35 @@ function setOrientation(value) {
   repackPages();
 }
 function renderCatalog() {
-  const query=state.search.trim().toLocaleLowerCase('pl'),counts=placedCounts();
-  const items=LABELS.filter(label=>(!query||label.name.toLocaleLowerCase('pl').includes(query))&&(state.category==='Wszystkie'||label.category===state.category));
+  const searchText=text=>text.toLocaleLowerCase(I18N.language).replace(/ł/g,'l').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const query=searchText(state.search.trim()),counts=placedCounts();
+  const items=LABELS.filter(label=>(!query||[I18N.name(label),label.name,I18N.name(label,'en')].some(name=>searchText(name).includes(query)))&&(state.category==='Wszystkie'||label.category===state.category));
   els.catalog.innerHTML=items.map(label=>{
-    const count=counts.get(label.id)||0;
-    return `<button type="button" class="label-card" data-label-id="${label.id}" aria-label="${escapeHtml('Dodaj etykietę: '+label.name+(count?'. W arkuszu: '+count:''))}"><span class="sticker">${stickerMarkup(newSticker(label.id),true)}</span><span><strong>${escapeHtml(label.name)}</strong><small>${state.activeTarget?'Wstaw w wybrane pole':'Dodaj do arkusza'}</small></span>${count?`<span class="usage-badge">×${count}</span>`:''}</button>`;
-  }).join('')||'<p class="catalog-empty">Nie znaleziono takiej etykiety.</p>';
+    const count=counts.get(label.id)||0,name=I18N.name(label);
+    const usage=count?tr('. W arkuszu: {count}',{count}):'';
+    return `<button type="button" class="label-card" data-label-id="${escapeHtml(label.id)}" aria-label="${escapeHtml(tr('Dodaj etykietę: {name}{usage}',{name,usage}))}"><span class="sticker">${stickerMarkup(newSticker(label.id),true)}</span><span><strong>${escapeHtml(name)}</strong><small>${escapeHtml(tr(state.activeTarget?'Wstaw w wybrane pole':'Dodaj do arkusza'))}</small></span>${count?`<span class="usage-badge">×${count}</span>`:''}</button>`;
+  }).join('')||`<p class="catalog-empty">${escapeHtml(tr('Nie znaleziono takiej etykiety.'))}</p>`;
 }
 function slotPosition(index,layout) { return {x:layout.startX+(index%layout.columns)*(state.size+A4.gap),y:layout.startY+Math.floor(index/layout.columns)*(state.size+A4.gap)}; }
 function renderPages() {
   const layout=calculateLayout();
   els.pages.style.setProperty('--paper-ratio',`${A4.width} / ${A4.height}`);
   els.pages.innerHTML=state.pages.map((page,pageIndex)=>{
-    const occupied=page.slots.filter(Boolean),names=occupied.map(sticker=>sticker.text||labelMap.get(sticker.labelId).name);
-    return `<article class="page-card"><div class="page-header"><div><h3>Strona ${pageIndex+1}</h3><span>${occupied.length} z ${layout.capacity} pól · A4 ${state.orientation==='landscape'?'poziomo':'pionowo'}</span></div><button class="icon-btn delete-page" type="button" data-page="${pageIndex}" aria-label="Usuń stronę ${pageIndex+1}" title="Usuń stronę">×</button></div><div class="paper-wrap"><div class="paper" data-page="${pageIndex}">${page.slots.map((sticker,slotIndex)=>{
+    const occupied=page.slots.filter(Boolean),names=occupied.map(sticker=>sticker.text||I18N.name(labelMap.get(sticker.labelId)));
+    return `<article class="page-card"><div class="page-header"><div><h3>${escapeHtml(tr('Strona {number}',{number:pageIndex+1}))}</h3><span>${escapeHtml(tr('{used} z {capacity} pól · A4 {orientation}',{used:occupied.length,capacity:layout.capacity,orientation:tr(state.orientation==='landscape'?'poziomo':'pionowo')}))}</span></div><button class="icon-btn delete-page" type="button" data-page="${pageIndex}" aria-label="${escapeHtml(tr('Usuń stronę {number}',{number:pageIndex+1}))}" title="${escapeHtml(tr('Usuń stronę'))}">×</button></div><div class="paper-wrap"><div class="paper" data-page="${pageIndex}">${page.slots.map((sticker,slotIndex)=>{
       const position=slotPosition(slotIndex,layout),active=state.activeTarget?.pageIndex===pageIndex&&state.activeTarget?.slotIndex===slotIndex;
-      const name=sticker?(sticker.text||labelMap.get(sticker.labelId).name):'';
-      return `<button type="button" class="slot ${sticker?'filled':''} ${active?'active':''}" data-page="${pageIndex}" data-slot="${slotIndex}" style="left:${position.x/A4.width*100}%;top:${position.y/A4.height*100}%;width:${state.size/A4.width*100}%;height:${state.size/A4.height*100}%" aria-label="${escapeHtml(sticker?`Edytuj pole ${slotIndex+1}: ${name}`:`Puste pole ${slotIndex+1}. Wybierz etykietę.`)}" title="${sticker?'Edytuj napis i styl':'Wybierz etykietę'}">${sticker?`<span class="sticker">${stickerMarkup(sticker)}</span>`:`<span class="slot-number"><span class="slot-plus">+</span>${slotIndex+1}</span>`}</button>`;
-    }).join('')}</div></div><details class="page-summary"><summary>Etykiety na tej stronie${names.length?' ('+names.length+')':''}</summary><p>${names.length?names.map(escapeHtml).join(' · '):'Strona jest pusta.'}</p></details></article>`;
+      const name=sticker?(sticker.text||I18N.name(labelMap.get(sticker.labelId))):'';
+      return `<button type="button" class="slot ${sticker?'filled':''} ${active?'active':''}" data-page="${pageIndex}" data-slot="${slotIndex}" style="left:${position.x/A4.width*100}%;top:${position.y/A4.height*100}%;width:${state.size/A4.width*100}%;height:${state.size/A4.height*100}%" aria-label="${escapeHtml(tr(sticker?'Edytuj pole {number}: {name}':'Puste pole {number}. Wybierz etykietę.',{number:slotIndex+1,name}))}" title="${escapeHtml(tr(sticker?'Edytuj napis i styl':'Wybierz etykietę'))}">${sticker?`<span class="sticker">${stickerMarkup(sticker)}</span>`:`<span class="slot-number"><span class="slot-plus">+</span>${slotIndex+1}</span>`}</button>`;
+    }).join('')}</div></div><details class="page-summary"><summary>${escapeHtml(tr(names.length?'Etykiety na tej stronie ({count})':'Etykiety na tej stronie',{count:names.length}))}</summary><p>${names.length?names.map(escapeHtml).join(' · '):escapeHtml(tr('Strona jest pusta.'))}</p></details></article>`;
   }).join('');
 }
 function renderStatus() {
   const layout=calculateLayout(),count=allPlacedStickers().length;
-  els.layoutInfo.textContent=`${layout.columns} × ${layout.rows} · ${layout.capacity} pól`;
-  els.workspaceStats.textContent=`${state.pages.length} ${plural(state.pages.length,'strona','strony','stron')} · ${count} ${plural(count,'etykieta','etykiety','etykiet')}`;
+  els.layoutInfo.textContent=tr('{columns} × {rows} · {capacity} pól',layout);
+  els.workspaceStats.textContent=I18N.count('pagesCount',state.pages.length)+' · '+I18N.count('labelsCount',count);
   els.targetNote.hidden=!state.activeTarget;
-  if(state.activeTarget) els.targetNote.innerHTML=`Wybierz wzór dla <strong>strony ${state.activeTarget.pageIndex+1}, pola ${state.activeTarget.slotIndex+1}</strong>.<br><button type="button" class="btn small" id="cancelTargetBtn">Anuluj wybór pola</button>`;
+  if(state.activeTarget) els.targetNote.innerHTML=`${escapeHtml(tr('Wybierz wzór dla strony {page}, pola {slot}.',{page:state.activeTarget.pageIndex+1,slot:state.activeTarget.slotIndex+1}))}<br><button type="button" class="btn small" id="cancelTargetBtn">${escapeHtml(tr('Anuluj wybór pola'))}</button>`;
 }
-function plural(n,one,few,many) { return n===1?one:(n%10>=2&&n%10<=4&&(n%100<12||n%100>14)?few:many); }
 function render() { renderCatalog();renderPages();renderStatus(); }
 function addLabel(labelId) {
   if(state.exporting||!labelMap.has(labelId)) return;
@@ -219,8 +226,8 @@ function chooseSlot(pageIndex,slotIndex) {
     return;
   }
   state.editingTarget={pageIndex,slotIndex};state.editDraft={...sticker};state.returnFocus=document.activeElement;
-  els.modalTitle.textContent='Edytuj naklejkę';
-  els.modalPosition.textContent=`${labelMap.get(sticker.labelId).name} · strona ${pageIndex+1}, pole ${slotIndex+1}`;
+  els.modalTitle.textContent=tr('Edytuj naklejkę');
+  els.modalPosition.textContent=tr('{name} · strona {page}, pole {slot}',{name:I18N.name(labelMap.get(sticker.labelId)),page:pageIndex+1,slot:slotIndex+1});
   els.makeDefaultStyle.checked=false;fillEditorFields();updateEditorPreview();
   els.editModal.hidden=false;document.body.classList.add('modal-open');els.labelText.focus();
 }
@@ -234,7 +241,10 @@ function updateEditorPreview() {
 }
 function readEditorFields() {
   if(!state.editDraft) return;
-  Object.assign(state.editDraft,{text:els.labelText.value.slice(0,120),fontId:els.labelFont.value,color:els.labelColor.value,uppercase:els.labelCase.value==='upper'});updateEditorPreview();
+  const text=els.labelText.value.slice(0,120);
+  // Style edits keep automatic translation; typing a personal name opts this copy out.
+  if(text!==state.editDraft.text) state.editDraft.autoText=false;
+  Object.assign(state.editDraft,{text,fontId:els.labelFont.value,color:els.labelColor.value,uppercase:els.labelCase.value==='upper'});updateEditorPreview();
 }
 function closeModal() {
   els.editModal.hidden=true;document.body.classList.remove('modal-open');state.editingTarget=null;state.editDraft=null;
@@ -250,18 +260,22 @@ function saveEditor() {
 }
 function initializeCategories() {
   const categories=['Wszystkie',...new Set(LABELS.map(label=>label.category||'Pozostałe'))];
-  els.categoryFilter.innerHTML=categories.map(category=>`<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join('');
+  els.categoryFilter.innerHTML=categories.map(category=>{
+    const label=LABELS.find(label=>label.category===category);
+    const number=label?.categoryKey||label?.src.match(/^assets\/labels\/(\d{2})-/)?.[1];
+    return `<option value="${escapeHtml(category)}">${escapeHtml(I18N.categoryName(category,number))}</option>`;
+  }).join('');
   if(!categories.includes(state.category)) state.category='Wszystkie';
   els.categoryFilter.value=state.category;
   const count=categories.length-1;
-  els.catalogSummary.textContent=`${LABELS.length} wzorów · ${count} ${count===1?'kategoria':count>=2&&count<=4?'kategorie':'kategorii'}`;
+  els.catalogSummary.textContent=I18N.count('designsCount',LABELS.length)+' · '+I18N.count('categoriesCount',count);
 }
 function deletePage(pageIndex) {
-  if(state.pages[pageIndex].slots.some(Boolean)&&!confirm(uiLanguage==='en'?`Delete page ${pageIndex+1} including its labels?`:`Usunąć stronę ${pageIndex+1} wraz z naklejkami?`)) return;
+  if(state.pages[pageIndex].slots.some(Boolean)&&!confirm(tr('Usunąć stronę {number} wraz z naklejkami?',{number:pageIndex+1}))) return;
   state.pages.splice(pageIndex,1);if(!state.pages.length)state.pages.push(emptyPage());state.activeTarget=null;render();
 }
 let toastTimer;
-function showToast(message) { els.toast.textContent=message;els.toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>els.toast.classList.remove('show'),2600); }
+function showToast(message) { els.toast.textContent=tr(message);els.toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>els.toast.classList.remove('show'),2600); }
 function loadImage(src) {
   if(!imageCache.has(src)) {
     const promise=new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(new Error('Nie udało się odczytać grafiki.'));image.src=src;});
@@ -469,7 +483,7 @@ async function exportPdf() {
   if(!printablePages.length) { showToast('Dodaj przynajmniej jedną naklejkę.');return; }
   state.exporting=true;els.exportBtn.disabled=true;
   const main=document.querySelector('.app-shell'),originalText=els.exportBtn.textContent;
-  main.inert=true;els.exportBtn.textContent='Tworzenie PDF…';
+  main.inert=true;els.exportBtn.textContent=tr('Tworzenie PDF…');
   try {
     await fontsReady;
     const canvasWidth=Math.round(A4.width/25.4*300),canvasHeight=Math.round(A4.height/25.4*300);
@@ -477,7 +491,7 @@ async function exportPdf() {
     const canvas=document.createElement('canvas');canvas.width=canvasWidth;canvas.height=canvasHeight;
     const context=canvas.getContext('2d');context.imageSmoothingEnabled=true;context.imageSmoothingQuality='high';
     for(let pageIndex=0;pageIndex<printablePages.length;pageIndex++) {
-      els.exportBtn.textContent=`Tworzenie PDF ${pageIndex+1}/${printablePages.length}…`;
+      els.exportBtn.textContent=tr('Tworzenie PDF {page}/{total}…',{page:pageIndex+1,total:printablePages.length});
       context.fillStyle='#fff';context.fillRect(0,0,canvasWidth,canvasHeight);
       const page=printablePages[pageIndex];
       for(let slotIndex=0;slotIndex<page.slots.length;slotIndex++) {
@@ -497,7 +511,7 @@ async function exportPdf() {
 }
 function confirmCustomLabel() {
   if(!cropState.image)return;
-  const label={id:`custom-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,name:els.customLabelName.value.trim()||'Własna etykieta',category:'Własne',src:croppedImageDataUrl(),thumb:croppedImageDataUrl(320,'image/webp'),thumbWidth:320,thumbHeight:320,width:945,height:945,textOverlay:els.customTextOverlay.checked,custom:true};
+  const label={id:`custom-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,name:els.customLabelName.value.trim()||tr('Własna etykieta'),category:'Własne',src:croppedImageDataUrl(),thumb:croppedImageDataUrl(320,'image/webp'),thumbWidth:320,thumbHeight:320,width:945,height:945,textOverlay:els.customTextOverlay.checked,custom:true};
   LABELS.unshift(label);labelMap.set(label.id,label);state.category='Wszystkie';closeImportModal();initializeCategories();addLabel(label.id);
 }
 function cropPointerPosition(event) {
@@ -513,7 +527,8 @@ function initializeStyles() {
   els.labelFont.innerHTML=FONTS.map(font=>`<option value="${font.id}">${font.name}</option>`).join('');
   els.stylePresets.innerHTML=STYLES.map((style,index)=>{
     const font=fontMap.get(style.fontId);
-    return `<button type="button" class="style-preset" data-style="${style.id}" aria-pressed="false" title="${style.name}"><span style="font-family:'${font.family}';font-weight:${font.weight};color:${style.color}">${style.uppercase?'SÓL':'Sól'}</span><small>${index+1}. ${style.name}</small></button>`;
+    const sample=I18N.name({name:'Sól',translationKey:'01/sol'});
+    return `<button type="button" class="style-preset" data-style="${style.id}" aria-pressed="false" title="${escapeHtml(tr(style.name))}"><span style="font-family:'${font.family}';font-weight:${font.weight};color:${style.color}">${escapeHtml(style.uppercase?sample.toLocaleUpperCase(I18N.language):sample)}</span><small>${index+1}. ${escapeHtml(tr(style.name))}</small></button>`;
   }).join('');renderDefaultStyle();
 }
 
@@ -582,59 +597,86 @@ document.addEventListener('keydown',event=>{
   }
 });
 
-initializeStyles();initializeCategories();state.pages=[emptyPage()];render();
+
+function presetLabels(size) {
+  const byKey=new Map();
+  for(const label of LABELS) {
+    const key=I18N.key(label);
+    if(key&&!byKey.has(key)) byKey.set(key,label);
+  }
+  return (presetData?.order||[]).slice(0,size).map(key=>byKey.get(key)).filter(Boolean);
+}
+function updatePresetChoices() {
+  if(!presetData) { els.addPresetBtn.disabled=true;return; }
+  const chosen=Number(els.presetSize.value)||20;
+  els.presetSize.innerHTML=presetData.sizes.map(size=>{
+    const available=presetLabels(size).length;
+    const source=available===size?'{count} pozycji':'{count} pozycji ({available} dostępnych)';
+    return `<option value="${size}">${escapeHtml(tr(source,{count:size,available}))}</option>`;
+  }).join('');
+  els.presetSize.value=String(presetData.sizes.includes(chosen)?chosen:presetData.sizes[0]);
+  els.presetSize.disabled=false;
+  els.addPresetBtn.disabled=presetLabels(Number(els.presetSize.value)).length===0;
+}
+function addPreset() {
+  if(state.exporting||!presetData) return;
+  const size=Number(els.presetSize.value);
+  if(!presetData.sizes.includes(size)) return;
+  const selected=presetLabels(size);
+  const placedKeys=new Set(allPlacedStickers().map(sticker=>I18N.key(labelMap.get(sticker.labelId))));
+  let added=0;
+  for(const label of selected) {
+    const key=I18N.key(label);
+    if(placedKeys.has(key)) continue;
+    let page=state.pages.find(page=>page.slots.includes(null));
+    if(!page) { page=emptyPage();state.pages.push(page); }
+    page.slots[page.slots.indexOf(null)]=newSticker(label.id);
+    placedKeys.add(key);added++;
+  }
+  state.activeTarget=null;render();
+  const message=added?tr('Dodano: {labels}. Zestaw: {size}.',{labels:I18N.count('labelsCount',added),size}):tr('Zestaw jest już na arkuszach.');
+  const missing=size-selected.length;
+  showToast(message+(missing?' '+tr('Brakujące grafiki: {missing}.',{missing}):''));
+}
+function updateAutomaticNames() {
+  const stickers=allPlacedStickers();
+  if(state.editDraft) stickers.push(state.editDraft);
+  for(const sticker of stickers) if(sticker.autoText) {
+    sticker.text=I18N.name(labelMap.get(sticker.labelId));
+  }
+}
+function changeLanguage(code) {
+  I18N.setLanguage(code);els.languageSelect.value=I18N.language;
+  updateAutomaticNames();textLayoutCache.clear();
+  I18N.translateInterface();initializeStyles();initializeCategories();updatePresetChoices();render();
+  if(state.editDraft) {
+    fillEditorFields();updateEditorPreview();
+    const {pageIndex,slotIndex}=state.editingTarget;
+    els.modalTitle.textContent=tr('Edytuj naklejkę');
+    els.modalPosition.textContent=tr('{name} · strona {page}, pole {slot}',{name:I18N.name(labelMap.get(state.editDraft.labelId)),page:pageIndex+1,slot:slotIndex+1});
+  }
+}
+els.languageSelect.addEventListener('change',event=>changeLanguage(event.target.value));
+els.presetSize.addEventListener('change',()=>updatePresetChoices());
+els.addPresetBtn.addEventListener('click',addPreset);
+
+I18N.captureInterface();
+state.pages=[emptyPage()];
 const fontsReady=Promise.all(FONTS.map(font=>document.fonts.load(`${font.weight} 100px '${font.family}'`))).then(()=>{
-  textLayoutCache.clear();renderDefaultStyle();render();if(state.editDraft)updateEditorPreview();
+  textLayoutCache.clear();
+  if(state.pages.length) { renderDefaultStyle();render();if(state.editDraft)updateEditorPreview(); }
 });
 fontsReady.catch(error=>{console.error(error);showToast('Nie udało się wczytać czcionek. Odśwież stronę.');});
+async function initializeApp() {
+  await I18N.ready;
+  els.languageSelect.innerHTML=I18N.languages().map(item=>`<option value="${escapeHtml(item.code)}">${escapeHtml(item.name)}</option>`).join('');
+  els.languageSelect.disabled=false;
+  changeLanguage(I18N.language);
+  try {
+    const response=await fetch('data/presets.json',{cache:'no-cache'});
+    if(!response.ok) throw new Error('Could not load presets');
+    presetData=await response.json();updatePresetChoices();
+  } catch(error) { console.error(error);showToast('Nie udało się wczytać zestawów.'); }
+}
+initializeApp();
 
-const UI_TRANSLATIONS = {"Etykiety na przyprawy":"Spice labels","Etykiety na przyprawy — edytor arkuszy A4":"Spice labels — A4 sheet editor","Cała strona została przygotowana przy użyciu sztucznej inteligencji (AI): kod, układ i wygląd interfejsu, funkcje edytora oraz grafiki etykiet i treści. Projekt rozwija się na podstawie pomysłów i uwag użytkownika. Kod źródłowy jest dostępny na GitHub.":"The entire website was created using artificial intelligence (AI): its code, interface layout and design, editor features, label artwork and text. The project evolves based on the user's ideas and feedback. The source code is available on GitHub.","Średnica naklejki":"Label diameter","Własna":"Custom","Rozmiar [mm]":"Size [mm]","Układ strony":"Page layout","Domyślny styl nowych naklejek":"Default style for new labels","Dodaj własną grafikę":"Add your own image","Szukaj przyprawy…":"Search spices…","Szukaj przyprawy":"Search spices","Filtruj grupę etykiet":"Filter label category","Twój arkusz A4":"Your A4 sheet","+ Dodaj stronę":"+ Add page","↓ Pobierz PDF":"↓ Download PDF","Kartka":"Paper","A4 poziomo":"A4 landscape","A4 pionowo":"A4 portrait","Powiększenie":"Zoom","Dopasuj do szerokości":"Fit to width","Wybierz wzór po lewej. Kliknij naklejkę na kartce, aby zmienić napis, czcionkę i kolor.":"Choose a design on the left. Click a label on the sheet to change its text, font and colour.","PDF zachowuje wybraną średnicę. Drukuj w skali 100% / „Rozmiar rzeczywisty”.":"The PDF preserves the selected diameter. Print at 100% / “Actual size”.","Edytuj naklejkę":"Edit label","Zamknij edytor":"Close editor","Napis automatycznie wypełnia miejsce nad ilustracją.":"Text automatically fills the space above the illustration.","Napis na naklejce":"Label text","Nazwa przyprawy":"Spice name","Możesz wpisać własny tekst i podzielić go na wiersze.":"Enter your own text and split it into lines.","5 gotowych stylów":"5 preset styles","Gotowe style":"Preset styles","Czcionka":"Font","Kolor napisu":"Text colour","Wielkość liter":"Letter case","WIELKIE LITERY":"UPPERCASE","Tak jak w tekście":"As entered","Używaj tego stylu dla kolejnych naklejek":"Use this style for new labels","Zmień grafikę":"Replace image","Usuń z pola":"Remove from slot","Anuluj":"Cancel","Zapisz zmiany":"Save changes","Własna grafika":"Custom image","Zamknij import":"Close import","Przeciągnij obraz, aby ustawić kadr. Suwakiem zmienisz jego skalę.":"Drag the image to position it. Use the slider to adjust its scale.","Nazwa etykiety":"Label name","Np. moja mieszanka":"E.g. my blend","Dodaj napis nad ilustracją":"Add text above the illustration","Skala":"Scale","Dodaj etykietę":"Add label","Biblioteka etykiet":"Label library","Podgląd stron A4":"A4 page preview","Informacja o stronie":"About this website","Klasyczny bordowy":"Classic burgundy","Botaniczny zielony":"Botanical green","Vintage brązowy":"Vintage brown","Prosty grafitowy":"Simple charcoal","Elegancki winny":"Elegant wine","Własny zapisany styl":"Saved custom style","Wstaw w wybrane pole":"Insert in selected slot","Dodaj do arkusza":"Add to sheet","Nie znaleziono takiej etykiety.":"No matching labels found.","Usuń stronę":"Delete page","Edytuj napis i styl":"Edit text and style","Wybierz etykietę":"Choose a label","Etykiety na tej stronie":"Labels on this page","Strona jest pusta.":"This page is empty.","Anuluj wybór pola":"Cancel slot selection","Wszystkie":"All","Własne":"Custom","Pozostałe":"Other","Sole, mieszanki solne i wzmacniacze smaku":"Salts, salt blends and flavour enhancers","Dodano naklejkę. Kliknij ją na kartce, aby zmienić napis.":"Label added. Click it on the sheet to change its text.","Zapisano napis i styl tej naklejki.":"Label text and style saved.","Usunięto naklejkę z pola.":"Label removed from slot.","Wybierz plik graficzny.":"Choose an image file.","Nie udało się odczytać obrazu.":"Could not read the image.","Dodaj przynajmniej jedną naklejkę.":"Add at least one label.","Tworzenie PDF…":"Creating PDF…","PDF gotowy. Drukuj w skali 100%.":"PDF ready. Print at 100%.","Nie udało się utworzyć PDF. Sprawdź, czy grafiki i czcionki się wczytały.":"Could not create the PDF. Check that images and fonts have loaded.","Nie udało się wczytać czcionek. Odśwież stronę.":"Could not load fonts. Refresh the page.","Sól":"Salt","Sól drobna":"Fine salt","Sól gruboziarnista":"Coarse salt","Sól jodowana":"Iodized salt","Sól niejodowana":"Non-iodized salt","Sól kamienna":"Rock salt","Sól morska":"Sea salt","Sól w płatkach":"Flake salt","Sól koszerna":"Kosher salt","Sól himalajska różowa":"Pink Himalayan salt","Sól himalajska czarna":"Black Himalayan salt","Sól hawajska czarna":"Black Hawaiian salt","Sól hawajska czerwona":"Red Hawaiian salt","Sól perska niebieska":"Persian blue salt","Sól w piramidkach":"Pyramid salt","Sól bambusowa":"Bamboo salt","Sól peklowa":"Curing salt","Sól nitrytowa":"Nitrite curing salt","Sól do kiszenia":"Pickling salt","Sól wędzona":"Smoked salt","Sól truflowa":"Truffle salt","Sól cytrynowa":"Lemon salt","Sól limonkowa":"Lime salt","Sól czosnkowa":"Garlic salt","Sól cebulowa":"Onion salt","Sól selerowa":"Celery salt","Sól paprykowa":"Paprika salt","Sól chili":"Chili salt","Sól ziołowa":"Herb salt","Sól sezamowa":"Sesame salt","Sól potasowa":"Potassium salt","Chlorek potasu":"Potassium chloride","Glutaminian sodu":"Monosodium glutamate","Drożdże nieaktywne":"Nutritional yeast","Drożdże nieaktywne z witaminą B12":"Nutritional yeast with vitamin B12","Papryki i chili":"Paprika and chili","Papryka słodka":"Sweet paprika","Papryka ostra":"Hot paprika","Papryka wędzona":"Smoked paprika","Pieprz cayenne":"Cayenne pepper"};
-const UI_PHRASES = [["Tworzenie PDF","Creating PDF"],["Dodaj etykietę:","Add label:"],["W arkuszu:","On sheet:"],["Edytuj pole","Edit slot"],["Puste pole","Empty slot"],["Wybierz etykietę.","Choose a label."],["Usunąć stronę","Delete page"],["wraz z naklejkami?","including its labels?"],["Wybierz wzór dla","Choose a design for"],["Etykiety na tej stronie","Labels on this page"],["Usuń stronę","Delete page"],["Strona","Page"],["strony","pages"],["stron","pages"],["strona","page"],["pola","slots"],["pole","slot"],["pól","slots"],["etykieta","label"],["etykiety","labels"],["etykiet","labels"],["wzorów","designs"],["kategoria","category"],["kategorie","categories"],["kategorii","categories"],["poziomo","landscape"],["pionowo","portrait"],["z","of"]];
-let uiLanguage = 'pl';
-try { uiLanguage = localStorage.getItem('naklejki.language') === 'en' ? 'en' : 'pl'; } catch (_) {}
-function translateText(text) {
-  const trimmed = text.trim();
-  if (UI_TRANSLATIONS[trimmed]) return text.replace(trimmed, UI_TRANSLATIONS[trimmed]);
-  let result = text;
-  for (const [polish, english] of UI_PHRASES) {
-    const escaped = polish.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    result = result.replace(new RegExp('(?<![\\p{L}])' + escaped + '(?![\\p{L}])', 'gu'), english);
-  }
-  return result;
-}
-const translatedValues = new WeakMap();
-function translateValue(owner, key, value, write) {
-  let saved = translatedValues.get(owner);
-  if (!saved) { saved = {}; translatedValues.set(owner, saved); }
-  if (!saved[key] || value !== saved[key].output) saved[key] = {original:value, output:value};
-  const output = uiLanguage === 'en' ? translateText(saved[key].original) : saved[key].original;
-  if (value !== output) write(output);
-  saved[key].output = output;
-}
-function translateInterface() {
-  uiObserver.disconnect();
-  document.documentElement.lang = uiLanguage;
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  let node;
-  while ((node = walker.nextNode())) {
-    if (node.parentElement.closest('script,style,svg,.sticker,#defaultStyleSample,#languageSelect,.visitor-counter,textarea')) continue;
-    const current = node;
-    translateValue(current, 'text', current.nodeValue, value => { current.nodeValue = value; });
-  }
-  document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(element => {
-    if (element.closest('.visitor-counter,#languageSelect')) return;
-    for (const attribute of ['placeholder','aria-label','title']) {
-      if (element.hasAttribute(attribute)) translateValue(element, attribute, element.getAttribute(attribute), value => element.setAttribute(attribute,value));
-    }
-  });
-  translateValue(document.querySelector('title'), 'text', document.title, value => { document.title = value; });
-  uiObserver.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['placeholder','aria-label','title']});
-}
-const uiObserver = new MutationObserver(translateInterface);
-document.getElementById('languageSelect').value = uiLanguage;
-document.getElementById('languageSelect').addEventListener('change', event => {
-  uiLanguage = event.target.value;
-  try { localStorage.setItem('naklejki.language',uiLanguage); } catch (_) {}
-  translateInterface();
-});
-translateInterface();

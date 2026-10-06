@@ -13,6 +13,7 @@ LABELS_DIR = ROOT / "assets" / "labels"
 THUMBS_DIR = ROOT / "assets" / "thumbs"
 THUMB_SIZE = 320
 CATALOG = ROOT / "data" / "labels.js"
+TRANSLATIONS = ROOT / "data" / "translations.json"
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".gif"}
 
 
@@ -44,6 +45,7 @@ def read_categories():
 
 def generate_catalog():
     categories = read_categories()
+    translations = json.loads(TRANSLATIONS.read_text(encoding="utf-8")).get("labels", {}) if TRANSLATIONS.exists() else {}
     by_folder = {category["folder"]: category for category in categories}
     by_number = {category["number"]: category for category in categories}
     previous = []
@@ -68,7 +70,13 @@ def generate_catalog():
         source = image_path.relative_to(ROOT).as_posix()
         old = by_source.get(source, {})
         canonical_name = category["names"].get(slug(image_path.stem)) if category else None
-        name = old.get("name") or canonical_name or image_path.stem.replace("-", " ").replace("_", " ").capitalize()
+        number_match = re.match(r"^(\d{2})(?:-|$)", folder)
+        category_key = category["number"] if category else (number_match.group(1) if number_match else None)
+        name = canonical_name or old.get("name") or image_path.stem.replace("-", " ").replace("_", " ").capitalize()
+        file_key = f"{category_key}/{slug(image_path.stem)}"
+        name_key = f"{category_key}/{slug(name)}"
+        translation_key = file_key if file_key in translations else name_key
+        name = translations.get(translation_key, {}).get("pl") or name
         label_id = old.get("id", relative.as_posix())
         if label_id in used_ids:
             label_id = relative.as_posix()
@@ -92,6 +100,8 @@ def generate_catalog():
             "name": name,
             "id": label_id,
             "category": category_name,
+            "categoryKey": category_key,
+            "translationKey": translation_key,
             "src": source,
             "thumb": thumb_path.relative_to(ROOT).as_posix(),
             "thumbWidth": thumb_width,

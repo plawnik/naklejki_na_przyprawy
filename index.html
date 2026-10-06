@@ -9,13 +9,14 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23fff4d6' stroke='%23651b18' stroke-width='4'/%3E%3Cpath d='M32 48V20M32 31c-8-1-12-5-13-12 8 0 13 4 13 12Zm0 8c8-1 12-5 13-12-8 0-13 4-13 12Z' fill='none' stroke='%233f722d' stroke-width='4'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/app.css">
   <script src="data/labels.js" defer></script>
+  <script src="assets/i18n.js" defer></script>
   <script src="assets/app.js" defer></script>
 </head>
 <body>
   <main class="app-shell">
     <aside class="library-panel" aria-label="Biblioteka etykiet">
       <div class="library-header">
-        <div class="language-tools"><select id="languageSelect" aria-label="Język / Language"><option value="pl">Polski</option><option value="en">English</option></select><div class="ai-info"><button class="icon-btn" type="button" aria-label="Informacja o stronie" aria-describedby="aiTooltip">ⓘ</button><div class="ai-tooltip" id="aiTooltip" role="tooltip"><span>Cała strona została przygotowana przy użyciu sztucznej inteligencji (AI): kod, układ i wygląd interfejsu, funkcje edytora oraz grafiki etykiet i treści. Projekt rozwija się na podstawie pomysłów i uwag użytkownika. Kod źródłowy jest dostępny na GitHub.</span> <a href="https://github.com/plawnik/naklejki_na_przyprawy" target="_blank" rel="noopener noreferrer">GitHub</a></div></div></div>
+        <div class="language-tools"><select id="languageSelect" aria-label="Język / Language" disabled><option value="pl">Polski</option><option value="en">English</option></select><div class="ai-info"><button class="icon-btn" type="button" aria-label="Informacja o stronie" aria-describedby="aiTooltip">ⓘ</button><div class="ai-tooltip" id="aiTooltip" role="tooltip"><span>Cała strona została przygotowana przy użyciu sztucznej inteligencji (AI): kod, układ i wygląd interfejsu, funkcje edytora oraz grafiki etykiet i treści. Projekt rozwija się na podstawie pomysłów i uwag użytkownika. Kod źródłowy jest dostępny na GitHub.</span> <a href="https://github.com/plawnik/naklejki_na_przyprawy" target="_blank" rel="noopener noreferrer">GitHub</a></div></div></div>
         <div class="brand"><span class="brand-mark" aria-hidden="true">❧</span><div><h1>Etykiety na przyprawy</h1><p id="catalogSummary">Wzory z dostępnych kategorii</p></div></div>
         <div class="settings-grid">
           <div class="field"><label for="sizePreset">Średnica naklejki</label><select id="sizePreset"><option value="22">22 mm</option><option value="30" selected>30 mm</option><option value="40">40 mm</option><option value="50">50 mm</option><option value="60">60 mm</option><option value="80">80 mm</option><option value="custom">Własna</option></select></div>
@@ -23,6 +24,7 @@
           <div class="field" id="layoutInfoField"><label>Układ strony</label><output id="layoutInfo" class="layout-info"></output></div>
         </div>
         <div class="field default-style-field"><label for="defaultStyle">Domyślny styl nowych naklejek</label><select id="defaultStyle"></select><div class="default-sample" id="defaultStyleSample">Sól ziołowa</div></div>
+        <div class="preset-picker"><div class="field"><label for="presetSize">Popularny zestaw</label><select id="presetSize" aria-label="Liczba pozycji w zestawie" disabled><option value="20">20 pozycji</option><option value="40">40 pozycji</option><option value="60">60 pozycji</option><option value="80">80 pozycji</option><option value="100">100 pozycji</option><option value="120">120 pozycji</option></select></div><button class="btn" id="addPresetBtn" type="button" disabled>Dodaj zestaw</button><small>Uzupełnia arkusze o brakujące naklejki.</small></div>
         <div class="target-note" id="targetNote" hidden></div>
         <button class="btn import-label-btn" id="importImageBtn" type="button">Dodaj własną grafikę</button><input id="imageFileInput" type="file" accept="image/*" hidden>
       </div>
