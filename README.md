@@ -79,10 +79,14 @@ Obecnie aktywne są **PL i EN**. Dla **uk, ru, fr, es i cs** przygotowane są mi
 
 W [data/presets.json](data/presets.json) pierwsze 20 kluczy tworzy zestaw 20 pozycji, pierwsze 40 zestaw 40 itd. Wpisy powinny być unikalne i odnosić się do dostępnych grafik. Po usunięciu grafiki strona pomija brakującą pozycję i podaje liczbę niedostępnych ilustracji. Powtórne dodanie zestawu nie tworzy duplikatów; dodaje ponownie tylko pozycje, które usunięto z arkuszy.
 
-## Licznik odwiedzin
+## Układ katalogu
 
-U góry strony, obok wyboru języka, jest wspólny licznik **wyświetleń strony** obsługiwany przez [Hits](https://github.com/silentsoft/hits). Kliknięcie licznika otwiera publiczne statystyki. Zliczane są pobrania licznika podczas otwierania lub odświeżania strony; wynik nie oznacza liczby unikalnych osób.
+Na komputerze górna część katalogu ma trzy zwarte rzędy:
 
-Licznik wczytuje się raz przy otwarciu opublikowanej strony GitHub Pages. Zmiana języka, wyszukiwanie i edycja naklejek nie pobierają go ponownie. Lokalne kopie strony nie zwiększają wyniku. Nazwa i opisy licznika zmieniają się wraz z PL/EN, a wynik jest wspólny dla obu języków.
+1. Nazwa strony z liczbą wzorów i kategorii, wybór języka, przycisk informacji i wolne pole na przyszły licznik.
+2. Średnica naklejki, informacje o układzie A4 i domyślny styl.
+3. Wybór popularnego zestawu, dodawanie zestawu i dodawanie własnej grafiki.
 
-Wynik przechowuje zewnętrzna usługa, więc jest wspólny dla różnych przeglądarek i komputerów. Do strony nie jest dodawany zewnętrzny skrypt; pobierany jest tylko obraz SVG licznika z `hits.sh`. Jeśli usługa jest niedostępna, zamiast uszkodzonego obrazka pojawia się „—”, a edytor działa dalej. Adres strony przekazywany licznikowi jest stały, bez parametrów wyszukiwania i fragmentów adresu.
+Filtr kategorii i wyszukiwarka są pod ustawieniami, a lista etykiet przewija się niezależnie. Na wąskim ekranie kontrolki przechodzą do dodatkowych rzędów. Własny rozmiar można podać pod wyborem średnicy.
+
+Poprzedni licznik został usunięty. Puste pole `#visitorCounterSlot` obok informacji jest przygotowane pod przyszłe osadzenie licznika; obecnie strona nie pobiera danych z żadnej usługi licznika.

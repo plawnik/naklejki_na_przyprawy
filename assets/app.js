@@ -542,7 +542,7 @@ els.categoryFilter.addEventListener('change',()=>{state.category=els.categoryFil
 els.defaultStyle.addEventListener('change',()=>{const style=STYLES.find(style=>style.id===els.defaultStyle.value);if(style)setDefaultStyle(style);});
 els.targetNote.addEventListener('click',event=>{if(event.target.closest('#cancelTargetBtn')){state.activeTarget=null;render();}});
 els.sizePreset.addEventListener('change',()=>{
-  const custom=els.sizePreset.value==='custom';els.customSizeField.hidden=!custom;els.layoutInfoField.style.gridColumn=custom?'1 / -1':'auto';
+  const custom=els.sizePreset.value==='custom';els.customSizeField.hidden=!custom;
   setSize(custom?els.customSize.value:els.sizePreset.value);if(custom)els.customSize.focus();
 });
 els.customSize.addEventListener('change',()=>setSize(els.customSize.value));
@@ -679,4 +679,3 @@ async function initializeApp() {
   } catch(error) { console.error(error);showToast('Nie udało się wczytać zestawów.'); }
 }
 initializeApp();
-

@@ -10,28 +10,40 @@
   <link rel="stylesheet" href="assets/app.css">
   <script src="data/labels.js" defer></script>
   <script src="assets/i18n.js" defer></script>
-  <script src="assets/visitor-counter.js" defer></script>
   <script src="assets/app.js" defer></script>
 </head>
 <body>
   <main class="app-shell">
     <aside class="library-panel" aria-label="Biblioteka etykiet">
       <div class="library-header">
-        <div class="language-tools"><select id="languageSelect" aria-label="Język / Language" disabled><option value="pl">Polski</option><option value="en">English</option></select><div class="ai-info"><button class="icon-btn" type="button" aria-label="Informacja o stronie" aria-describedby="aiTooltip">ⓘ</button><div class="ai-tooltip" id="aiTooltip" role="tooltip"><span>Cała strona została przygotowana przy użyciu sztucznej inteligencji (AI): kod, układ i wygląd interfejsu, funkcje edytora oraz grafiki etykiet i treści. Projekt rozwija się na podstawie pomysłów i uwag użytkownika. Kod źródłowy jest dostępny na GitHub.</span> <a href="https://github.com/plawnik/naklejki_na_przyprawy" target="_blank" rel="noopener noreferrer">GitHub</a></div></div><a class="visitor-counter" href="https://hits.sh/plawnik.github.io/naklejki_na_przyprawy/" target="_blank" rel="noopener noreferrer" aria-label="Statystyki wyświetleń strony" title="Statystyki wyświetleń strony"><span>Wyświetlenia</span><img id="visitorCounterBadge" alt="Licznik wyświetleń strony" height="20" decoding="async" referrerpolicy="no-referrer" hidden><span id="visitorCounterFallback" aria-hidden="true">—</span></a></div>
-        <div class="brand"><span class="brand-mark" aria-hidden="true">❧</span><div><h1>Etykiety na przyprawy</h1><p id="catalogSummary">Wzory z dostępnych kategorii</p></div></div>
-        <div class="settings-grid">
-          <div class="field"><label for="sizePreset">Średnica naklejki</label><select id="sizePreset"><option value="22">22 mm</option><option value="30" selected>30 mm</option><option value="40">40 mm</option><option value="50">50 mm</option><option value="60">60 mm</option><option value="80">80 mm</option><option value="custom">Własna</option></select></div>
-          <div class="field custom-size" id="customSizeField" hidden><label for="customSize">Rozmiar [mm]</label><input id="customSize" type="number" min="15" max="80" step="0.5" value="35" inputmode="decimal"></div>
-          <div class="field" id="layoutInfoField"><label>Układ strony</label><output id="layoutInfo" class="layout-info"></output></div>
+        <div class="library-top-row">
+          <div class="brand"><span class="brand-mark" aria-hidden="true">❧</span><div><h1>Etykiety na przyprawy</h1><p id="catalogSummary">Wzory z dostępnych kategorii</p></div></div>
+          <div class="language-tools">
+            <select id="languageSelect" aria-label="Język / Language" disabled><option value="pl">Polski</option><option value="en">English</option></select>
+            <div class="ai-info">
+              <button class="icon-btn" type="button" aria-label="Informacja o stronie" title="Informacje" aria-describedby="aiTooltip">ⓘ</button>
+              <div class="ai-tooltip" id="aiTooltip" role="tooltip"><span>Cała strona została przygotowana przy użyciu sztucznej inteligencji (AI): kod, układ i wygląd interfejsu, funkcje edytora oraz grafiki etykiet i treści. Projekt rozwija się na podstawie pomysłów i uwag użytkownika. Kod źródłowy jest dostępny na GitHub.</span> <a href="https://github.com/plawnik/naklejki_na_przyprawy" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+            </div>
+            <div class="visitor-counter-slot" id="visitorCounterSlot" aria-hidden="true"></div>
+          </div>
         </div>
-        <div class="field default-style-field"><label for="defaultStyle">Domyślny styl nowych naklejek</label><select id="defaultStyle"></select><div class="default-sample" id="defaultStyleSample">Sól ziołowa</div></div>
-        <div class="preset-picker"><div class="field"><label for="presetSize">Popularny zestaw</label><select id="presetSize" aria-label="Liczba pozycji w zestawie" disabled><option value="20">20 pozycji</option><option value="40">40 pozycji</option><option value="60">60 pozycji</option><option value="80">80 pozycji</option><option value="100">100 pozycji</option><option value="120">120 pozycji</option></select></div><button class="btn" id="addPresetBtn" type="button" disabled>Dodaj zestaw</button><small>Uzupełnia arkusze o brakujące naklejki.</small></div>
+        <div class="configuration-row">
+          <div class="size-settings">
+            <div class="field"><label for="sizePreset">Średnica naklejki</label><select id="sizePreset"><option value="22">22 mm</option><option value="30" selected>30 mm</option><option value="40">40 mm</option><option value="50">50 mm</option><option value="60">60 mm</option><option value="80">80 mm</option><option value="custom">Własna</option></select></div>
+            <div class="field custom-size" id="customSizeField" hidden><label for="customSize">Rozmiar [mm]</label><input id="customSize" type="number" min="15" max="80" step="0.5" value="35" inputmode="decimal"></div>
+          </div>
+          <div class="field" id="layoutInfoField"><label>Układ strony</label><output id="layoutInfo" class="layout-info"></output></div>
+          <div class="field default-style-field"><label for="defaultStyle">Domyślny styl nowych naklejek</label><select id="defaultStyle"></select><div class="default-sample" id="defaultStyleSample" hidden>Sól ziołowa</div></div>
+        </div>
+        <div class="preset-picker">
+          <div class="field"><label for="presetSize">Popularny zestaw</label><select id="presetSize" aria-label="Liczba pozycji w zestawie" disabled><option value="20">20 pozycji</option><option value="40">40 pozycji</option><option value="60">60 pozycji</option><option value="80">80 pozycji</option><option value="100">100 pozycji</option><option value="120">120 pozycji</option></select></div>
+          <button class="btn" id="addPresetBtn" type="button" title="Uzupełnia arkusze o brakujące naklejki." disabled>Dodaj zestaw</button>
+          <button class="btn import-label-btn" id="importImageBtn" type="button">Dodaj własną grafikę</button><input id="imageFileInput" type="file" accept="image/*" hidden>
+        </div>
         <div class="target-note" id="targetNote" hidden></div>
-        <button class="btn import-label-btn" id="importImageBtn" type="button">Dodaj własną grafikę</button><input id="imageFileInput" type="file" accept="image/*" hidden>
       </div>
       <div class="catalog-tools"><select id="categoryFilter" aria-label="Filtruj grupę etykiet"></select><input id="searchInput" type="search" placeholder="Szukaj przyprawy…" aria-label="Szukaj przyprawy"></div>
       <div class="catalog" id="catalog"></div>
-      
     </aside>
     <section class="workspace" aria-label="Podgląd stron A4">
       <header class="workspace-toolbar"><div class="workspace-title"><h2>Twój arkusz A4</h2><p id="workspaceStats">1 strona · 0 etykiet</p></div><div class="toolbar-actions"><button class="btn" id="addPageBtn" type="button">+ Dodaj stronę</button><button class="btn primary" id="exportBtn" type="button">↓ Pobierz PDF</button></div></header>
